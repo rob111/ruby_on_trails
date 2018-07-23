@@ -1,24 +1,16 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+LaunchAcademy Boston21 group 3 project.
+Ruby_on_trails is a web application for providing information about hiking trails and which allows authorized users to leave reviews. Signed-in users can also submit new trails to the website.
 
-Things you may want to cover:
+List of feature:
 
-* Ruby version
 
-* System dependencies
 
-* Configuration
 
-* Database creation
+Members of group:
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Andrey Knyazev
+Ben Reed
+Ezekiel Giordano
+Glen Anderson
