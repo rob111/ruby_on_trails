@@ -3,4 +3,9 @@ class Api::V1::TrailsController < ApplicationController
     render json: Trail.all
   end
 
+  def new
+    @trail = Trail.new
+    render json: @trail
+  end
+
 end

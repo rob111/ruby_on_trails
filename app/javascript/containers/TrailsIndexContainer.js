@@ -32,7 +32,6 @@ class TrailsIndexContainer extends Component {
 
 
   render() {
-
     let trails = this.state.trails_array.map((trail) => {
       return (
         <TrailTile
@@ -58,7 +57,6 @@ class TrailsIndexContainer extends Component {
       </div>
     )
   }
-
 }
 
 export default TrailsIndexContainer;

@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   root 'trails#index'
   devise_for :users
-  resources :trails, only: [:index, :show, :new, :create] do
-    resources :reviews, only: [:new, :create]
+  resources :trails do
+    resources :reviews
   end
 
   namespace :api do

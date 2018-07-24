@@ -13,11 +13,18 @@ describe('TrailsIndexContainerSpec', () => {
     user1 = { email: 'user1@test.com', password: '000000'}
     trails_array = [
       {
-        name: 'Test Trail', street: '777 Washington St.',
-      city: 'Waltham', state: 'MA', zip: '12345',
-      start_latitutde: '1', start_longitude: '2',
-      length: '6 miles', difficulty: '7', elevation: '80', user: user1
-    }
+        name: 'Test Trail',
+        street: '777 Washington St.',
+        city: 'Waltham',
+        state: 'MA',
+        zip: '12345',
+        start_latitutde: '1',
+        start_longitude: '2',
+        length: '6 miles',
+        difficulty: '7',
+        elevation: '80',
+        user: user1
+      }
     ]
     fetchMock.get('/api/v1/trails', {
       status: 200,
@@ -38,10 +45,7 @@ describe('TrailsIndexContainerSpec', () => {
         expect(wrapper.find('li').length).toEqual(trails_array.length)
         expect(wrapper.find('li').text()).toEqual(trails_array[0].name)
         done()
-
       }, 0)
     })
-
   })
-
 })
