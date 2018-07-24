@@ -1,0 +1,28 @@
+<% if current_user.admin? %>
+
+  <%= form_for(@selected_user, action: "search") do |f| %>
+
+    <div class="field">
+      <%= f.label :username %><br />
+      <%= f.text_field :username %>
+    </div>
+
+    <div class="field">
+      <%= f.label :email %><br />
+      <%= f.text_field :email %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password %><br />
+      <%= f.text_field :password %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+
+  <% end %>
+
+<% else %>
+  <% current_user.admin_access %>
+<% end %>
