@@ -6,12 +6,12 @@ import fetchMock from 'fetch-mock';
 
 describe('TrailsIndexContainerSpec', () => {
   let wrapper;
-  let trails_array;
+  let trails;
   let user1;
 
   beforeEach(() => {
     user1 = { email: 'user1@test.com', password: '000000'}
-    trails_array = [
+    trails = [
       {
         name: 'Test Trail',
         street: '777 Washington St.',
@@ -28,7 +28,7 @@ describe('TrailsIndexContainerSpec', () => {
     ]
     fetchMock.get('/api/v1/trails', {
       status: 200,
-      body: trails_array
+      body: trails
     })
     wrapper = mount(<TrailsIndexContainer />)
   });
@@ -42,8 +42,8 @@ describe('TrailsIndexContainerSpec', () => {
 
     it('renders each trail returned from api call', (done) => {
       setTimeout(() => {
-        expect(wrapper.find('li').length).toEqual(trails_array.length)
-        expect(wrapper.find('li').text()).toEqual(trails_array[0].name)
+        expect(wrapper.find('li').length).toEqual(trails.length)
+        expect(wrapper.find('li').text()).toEqual(trails[0].name)
         done()
       }, 0)
     })
