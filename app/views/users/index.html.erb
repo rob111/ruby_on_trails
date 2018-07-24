@@ -1,0 +1,17 @@
+
+<h1>Hello from the admin show page!</h1>
+
+
+<% @users.each do |user| %>
+  <div class="username">
+    <%= user.username %>
+  </div>
+  <div class="user_email">
+    <%= user.email %>
+  </div>
+
+  <div class="edit_button">
+    <%= link_to "Edit", edit_user_path(user), id: user.id %>
+  </div>
+  <br />
+<% end %>
