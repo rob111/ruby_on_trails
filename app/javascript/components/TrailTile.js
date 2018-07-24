@@ -12,9 +12,14 @@ class TrailTile extends Component {
   render() {
     return (
       <div>
-        <Link to={`/trails/${this.props.id}`}>
-          {this.props.name}
-        </Link>
+
+        <ul>
+          <li>
+            <Link to={`/trails/${this.props.id}`}>
+              {this.props.name}
+            </Link>
+        </li>
+      </ul>
       </div>
     )
   }
