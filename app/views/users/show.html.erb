@@ -1,53 +1,11 @@
+<div class="username">
+  Username: <%= @user.username %>
+</div>
 
-<h1>Hello from the admin show page!</h1>
+<div class="user_email">
+  Email: <%= @user.email %>
+</div>
 
-This is where one day we will be able to edit a trail, edit a user, delete a trail, or delete a user.
-
-
-<%= form_tag(user_path, method: :get) do |f| %>
-  <br />
-  <div id="selectUser">
-    User To Update: <%= select("user", "username", User.all.collect(&:username), :id => 'user-select') %>
-  </div>
-
-  <div class="actions">
-    <%= submit_tag("Search") %>
-  </div>
-
-<% end %>
-
-<% if @user.id %>
-  <br />
-  <br />
-
-  <%= form_for(@user) do |f| %>
-    <div class="field">
-      <%= f.label :username %><br />
-      <%= f.text_field :username %>
-    </div>
-
-    <div class="field">
-      <%= f.label :email %><br />
-      <%= f.text_field :email %>
-    </div>
-
-    <div class="actions">
-      <%= f.submit %>
-    </div>
-    <br />
-  <% end %>
-
-<hr>
-
-  <%= form_for(@user) do |f| %>
-    <div class="field">
-      <%= f.label :password %><br />
-      <%= f.text_field :password %>
-    </div>
-
-    <div class="actions">
-      <%= f.submit 'Update Password' %>
-    </div>
-  <% end %>
-
-<% end %>
+<div class="user_created_at">
+  Last updated: <%= @user.updated_at %>
+</div>

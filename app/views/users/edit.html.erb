@@ -1,28 +1,29 @@
-<% if current_user.admin? %>
+<%= form_for(@user) do |f| %>
+  <div class="field">
+    <%= f.label :username %><br />
+    <%= f.text_field :username %>
+  </div>
 
-  <%= form_for(@selected_user, action: "search") do |f| %>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
 
-    <div class="field">
-      <%= f.label :username %><br />
-      <%= f.text_field :username %>
-    </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  <br />
+<% end %>
 
-    <div class="field">
-      <%= f.label :email %><br />
-      <%= f.text_field :email %>
-    </div>
+<hr>
 
-    <div class="field">
-      <%= f.label :password %><br />
-      <%= f.text_field :password %>
-    </div>
+<%= form_for(@user) do |f| %>
+  <div class="field">
+    <%= f.label :password %><br />
+    <%= f.text_field :password %>
+  </div>
 
-    <div class="actions">
-      <%= f.submit %>
-    </div>
-
-  <% end %>
-
-<% else %>
-  <% current_user.admin_access %>
+  <div class="actions">
+    <%= f.submit 'Update Password' %>
+  </div>
 <% end %>

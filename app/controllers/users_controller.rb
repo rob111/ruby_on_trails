@@ -1,11 +1,16 @@
 class UsersController < ApplicationController
   before_action :authorize_user
 
+  def index
+    @users = User.all
+  end
+
   def show
-    @user = User.new
-   if params[:user] != nil
-      @user = User.find_by(username: params[:user][:username])
-    end
+    @user = User.find_by(username: params[:id])
+  end
+
+  def edit
+    @user = User.find_by(username: params[:id])
   end
 
   def update
