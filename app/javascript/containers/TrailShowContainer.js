@@ -51,15 +51,15 @@ class TrailShow extends Component {
       <div>
         <div>
           <h2>{this.state.name}</h2>
-          Street: {this.state.street}<br/>
-          City: {this.state.city}<br/>
-          State: {this.state.state}<br/>
-          Zip: {this.state.zip}<br/>
-          Starting latitude: {this.state.start_latitutde}<br/>
-          Starting longitude: {this.state.start_longitude}<br/>
-          Trail length: {this.state.length}<br/>
-          Elevation: {this.state.elevation}<br/>
-          Difficulty rating: {this.state.difficulty}<br/>
+          <div id='street'>Street: {this.state.street}<br/></div>
+          <div id='city'>City: {this.state.city}<br/></div>
+          <div id='state'>State: {this.state.state}<br/></div>
+          <div id='zip'>Zip code: {this.state.zip}<br/></div>
+          <div id='start_lat'>Starting latitude: {this.state.start_latitutde}<br/></div>
+          <div id='start_lon'>Starting longitude: {this.state.start_longitude}<br/></div>
+          <div id='length'>Trail length: {this.state.length}<br/></div>
+          <div id='elevation'>Elevation: {this.state.elevation}<br/></div>
+          <div id='difficulty'>Difficulty rating: {this.state.difficulty}<br/></div>
         </div>
         <br/>
         <div>
