@@ -6,8 +6,8 @@ feature 'admin edit user info', %Q{
   So that I can assist users
 } do
   scenario 'change username' do
-    admin = User.create(username: "Admin", email: "admin@example.com", password: "000000", role: "admin")
-    user = User.create(username: "usertest", email: "user@example.com", password: "000000")
+    admin = FactoryBot.create(:user, role: "admin")
+    user = FactoryBot.create(:user)
 
     visit new_user_session_path
 
@@ -15,10 +15,10 @@ feature 'admin edit user info', %Q{
     fill_in 'Password', with: admin.password
     click_button 'Log in'
     click_link 'Admin Section'
-    select('usertest', :from => 'user_username')
+    select(admin.username, :from => 'user_username')
     click_button 'Search'
 
-    expect(page).to have_content('usertest')
+    expect(page).to have_content(admin.username)
 
     fill_in 'Username', with: 'usertest22'
     click_button 'Update User'

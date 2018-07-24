@@ -6,7 +6,7 @@ feature 'admin access', %Q{
   So that I can edit other accounts
 } do
   scenario 'specify admin credentials' do
-    admin = User.create(username: "Admin", email: "admin@example.com", password: "000000", role: "admin")
+    admin = FactoryBot.create(:user, role: "admin")
 
     visit new_user_session_path
 
@@ -20,7 +20,7 @@ feature 'admin access', %Q{
   end
 
   scenario 'specify non-admin credentials' do
-    member = User.create(username: "UserTest", email: "member@example.com", password: "000000")
+    member = FactoryBot.create(:user)
 
     visit new_user_session_path
 
@@ -34,12 +34,12 @@ feature 'admin access', %Q{
   end
 
   scenario 'admin can access to user edit page' do
-    admin = User.create(username: "Admin1", email: "admin1@example.com", password: "000000", role: "admin")
+    admin1 = FactoryBot.create(:user, role: "admin")
 
     visit new_user_session_path
 
-    fill_in 'Email', with: admin.email
-    fill_in 'Password', with: admin.password
+    fill_in 'Email', with: admin1.email
+    fill_in 'Password', with: admin1.password
 
     click_button 'Log in'
 
@@ -49,7 +49,7 @@ feature 'admin access', %Q{
   end
 
   scenario 'non-admin cannot access user edit page' do
-    member1 = User.create(username: "UserTest1", email: "member1@example.com", password: "000000")
+    member1 = FactoryBot.create(:user)
 
     visit new_user_session_path
 
@@ -57,7 +57,7 @@ feature 'admin access', %Q{
     fill_in 'Password', with: member1.password
 
     click_button 'Log in'
-    visit "/users/3"
+    visit "/users/#{member1.username}"
 
     expect(page).to_not have_content('Admin Section')
     expect(page).to have_content('You do not have access to this page')

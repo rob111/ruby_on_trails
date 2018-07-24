@@ -5,11 +5,10 @@ This is where one day we will be able to edit a trail, edit a user, delete a tra
 
 
 <%= form_tag(user_path, method: :get) do |f| %>
-<br />
-<div id="selectUser">
-
-  User To Update: <%= select("user", "username", User.all.collect(&:username), :id => 'user-select') %>
-</div>
+  <br />
+  <div id="selectUser">
+    User To Update: <%= select("user", "username", User.all.collect(&:username), :id => 'user-select') %>
+  </div>
 
   <div class="actions">
     <%= submit_tag("Search") %>
@@ -20,8 +19,8 @@ This is where one day we will be able to edit a trail, edit a user, delete a tra
 <% if @user.id %>
   <br />
   <br />
-    <%= form_for(@user) do |f| %>
 
+  <%= form_for(@user) do |f| %>
     <div class="field">
       <%= f.label :username %><br />
       <%= f.text_field :username %>
@@ -37,9 +36,10 @@ This is where one day we will be able to edit a trail, edit a user, delete a tra
     </div>
     <br />
   <% end %>
-<hr>
-  <%= form_for(@user) do |f| %>
 
+<hr>
+
+  <%= form_for(@user) do |f| %>
     <div class="field">
       <%= f.label :password %><br />
       <%= f.text_field :password %>
@@ -49,6 +49,5 @@ This is where one day we will be able to edit a trail, edit a user, delete a tra
       <%= f.submit 'Update Password' %>
     </div>
   <% end %>
-
 
 <% end %>

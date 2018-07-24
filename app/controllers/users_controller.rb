@@ -3,24 +3,13 @@ class UsersController < ApplicationController
 
   def show
     @user = User.new
-    @users = User.order(:username)
-
-    if params[:user] != nil
-      username = params[:user][:username]
-      @user = User.find_by(username: username)
-    end
-  end
-
-  def index
-    if params[:user][:id]
-      @selected_user = User.find(params[:user][:id])
-    else
-      @selected_user = User.find(params[:id])
+   if params[:user] != nil
+      @user = User.find_by(username: params[:user][:username])
     end
   end
 
   def update
-    @user = User.find(params[:id])
+    @user = User.find_by(username: params[:id])
     if @user.update(user_params)
       redirect_to @user, notice: 'User was successfully updated.'
     else
