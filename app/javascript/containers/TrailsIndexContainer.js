@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import TrailTile from '../components/TrailTile'
 
-
 class TrailsIndexContainer extends Component {
   constructor(props) {
     super(props)
