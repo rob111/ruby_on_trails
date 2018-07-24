@@ -21,6 +21,7 @@
     <section class="top-bar-section">
       <ul class="right">
         <%- if current_user -%>
+          <li><%= link_to 'Add New Trail', new_trail_path %></li>
           <% if current_user.admin? %>
             <li><%= link_to "Admin Section", users_path %></li>
           <% end %>
@@ -42,6 +43,8 @@
   <%= yield %>
 
   <%= javascript_include_tag 'application' %>
+
+  <%= javascript_pack_tag 'application' %>
   <%= yield :extra_footer %>
 </body>
 </html>
