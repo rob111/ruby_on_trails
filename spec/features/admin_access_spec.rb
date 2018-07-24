@@ -45,7 +45,8 @@ feature 'admin access', %Q{
 
     click_link 'Admin Section'
 
-    expect(page).to have_content("User To Update")
+    expect(page).to have_content("Edit")
+    expect(page).to have_content(admin1.email)
   end
 
   scenario 'non-admin cannot access user edit page' do
