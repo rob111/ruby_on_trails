@@ -5,7 +5,7 @@ class TrailsIndexContainer extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      trails_array: []
+      trails: []
     }
   }
 
@@ -23,7 +23,7 @@ class TrailsIndexContainer extends Component {
     .then(response => response.json())
     .then(body => {
       this.setState({
-        trails_array: body
+        trails: body
       })
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
@@ -31,8 +31,7 @@ class TrailsIndexContainer extends Component {
 
 
   render() {
-
-    let trails = this.state.trails_array.map((trail) => {
+    let trails = this.state.trails.map((trail) => {
       return (
         <TrailTile
           key={trail.id}
@@ -57,7 +56,6 @@ class TrailsIndexContainer extends Component {
       </div>
     )
   }
-
 }
 
 export default TrailsIndexContainer;

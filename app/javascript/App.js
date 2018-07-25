@@ -5,12 +5,6 @@ import TrailTile from './components/TrailTile'
 import TrailShowContainer from './containers/TrailShowContainer'
 
 class App extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-
-    }
-  }
 
   render() {
     return (
