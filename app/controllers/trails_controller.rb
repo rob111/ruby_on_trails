@@ -36,4 +36,6 @@ class TrailsController < ApplicationController
     params.require(:trail).permit(:name, :street, :city, :state, :zip, :start_latitude, :start_longitude, :length, :difficulty, :elevation, user: @user)
   end
 
+  def show
+  end
 end

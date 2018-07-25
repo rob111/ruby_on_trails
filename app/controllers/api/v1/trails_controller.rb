@@ -3,9 +3,8 @@ class Api::V1::TrailsController < ApplicationController
     render json: Trail.all
   end
 
-  def new
-    @trail = Trail.new
+  def show
+    @trail = Trail.find(params[:id])
     render json: @trail
   end
-
 end
