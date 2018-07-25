@@ -10,7 +10,9 @@ class TrailsIndexContainer extends Component {
   }
 
   componentDidMount() {
-    fetch('/api/v1/trails')
+    fetch('/api/v1/trails', {
+      credentials: 'same-origin',
+    })
     .then(response => {
       if (response.ok) {
         return response;

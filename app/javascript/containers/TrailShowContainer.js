@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import ReviewTile from '../components/ReviewTile'
 
 class TrailShow extends Component {
   constructor(props) {
@@ -13,12 +14,17 @@ class TrailShow extends Component {
       start_longitude: '',
       length: '',
       difficulty: '',
-      elevation: ''
+      elevation: '',
+      active_user_id: null,
+      reviews: [],
+      usernames: []
     }
   }
 
   componentDidMount() {
-    fetch(`/api/v1/trails/${this.props.params.id}`)
+    fetch(`/api/v1/trails/${this.props.params.id}`, {
+      credentials: 'same-origin',
+    })
     .then(response => {
       if (response.ok) {
         return response;
@@ -31,22 +37,47 @@ class TrailShow extends Component {
     .then(response => response.json())
     .then(body => {
       this.setState({
-        name: body.name,
-        street: body.street,
-        city: body.city,
-        state: body.state,
-        zip: body.zip,
-        start_latitutde: body.start_latitutde,
-        start_longitude: body.start_longitude,
-        length: body.length,
-        difficulty: body.difficulty,
-        elevation: body.elevation
+        name: body.trail.name,
+        street: body.trail.street,
+        city: body.trail.city,
+        state: body.trail.state,
+        zip: body.trail.zip,
+        start_latitutde: body.trail.start_latitutde,
+        start_longitude: body.trail.start_longitude,
+        length: body.trail.length,
+        difficulty: body.trail.difficulty,
+        elevation: body.trail.elevation,
+        active_user_id: body.active_user_id,
+        reviews: body.reviews,
+        usernames: body.usernames
       })
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
   render() {
+    let review_title = null
+    if (this.state.reviews.length > 0) {
+      review_title = "Reviews:"
+    }
+    let new_review_link = ''
+    if (this.state.active_user_id) {
+      new_review_link = <a href={`/trails/${this.props.params.id}/reviews/new`}>Review This Trail</a>
+    }
+
+    let reviews = this.state.reviews.map((review, index) => {
+      return (
+        <div>
+          <ReviewTile
+            key={review.id}
+            username={this.state.usernames[index]}
+            rating={review.rating}
+            commentbody={review.comment}
+          />
+        </div>
+      )
+    }, this)
+
     return (
       <div>
         <div>
@@ -63,7 +94,11 @@ class TrailShow extends Component {
         </div>
         <br/>
         <div>
-          <a href={`/trails/${this.props.params.id}/reviews/new`}>Review This Trail</a>
+          {new_review_link}
+        </div>
+        <div>
+          <h2>{review_title}</h2>
+          {reviews}
         </div>
       </div>
     )
