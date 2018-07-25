@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
-import { Router, Route, IndexRoute, browserHistory } from 'react-router'
-import TrailsIndexContainer from './containers/TrailsIndexContainer'
-import TrailTile from './components/TrailTile'
+import React, { Component } from 'react';
+import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import TrailsIndexContainer from './containers/TrailsIndexContainer';
+import TrailTile from './components/TrailTile';
 
 
 class App extends Component {
