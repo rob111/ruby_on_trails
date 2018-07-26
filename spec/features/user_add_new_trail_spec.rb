@@ -38,6 +38,7 @@ feature 'user adds a new trail', %Q{
     click_button 'Log in'
     click_link 'Add New Trail'
 
+
     fill_in 'Name', with: 'Boston21 Trail'
     fill_in 'Street', with: '123 Main St.'
     fill_in 'City', with: 'Boston'
@@ -45,12 +46,12 @@ feature 'user adds a new trail', %Q{
     fill_in 'Zip', with: '12345'
     fill_in 'Start latitude', with: '1'
     fill_in 'Start longitude', with: '2'
-    fill_in 'Length', with: '66'
+    fill_in 'Length', with: '6'
     fill_in 'Difficulty', with: '7'
     fill_in 'Elevation', with: '80'
 
     click_button 'Add Trail'
-    
+
     expect(page).to have_content('Trail added successfully')
 
   end

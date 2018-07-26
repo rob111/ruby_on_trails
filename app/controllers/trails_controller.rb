@@ -14,7 +14,7 @@ class TrailsController < ApplicationController
   def create
     @user = User.find(current_user.id)
     @trail = Trail.create(trail_params)
-    @trail.user_id = @user.id
+    @trail.user_id = @user
     if @trail.save
       flash[:notice] = "Trail added successfully"
       redirect_to trails_path
