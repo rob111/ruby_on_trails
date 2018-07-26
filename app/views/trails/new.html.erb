@@ -1,0 +1,30 @@
+<h1>Trails Form Page</h1>
+<%- if current_user -%>
+<%= @user.username %>
+  <%= form_for @trail do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.label :street %>
+    <%= f.text_field :street %>
+    <%= f.label :city %>
+    <%= f.text_field :city %>
+    <%= f.label :state %>
+    <%= f.text_field :state %>
+    <%= f.label :zip %>
+    <%= f.text_field :zip %>
+    <%= f.label :start_latitude %>
+    <%= f.text_field :start_latitude %>
+    <%= f.label :start_longitude %>
+    <%= f.text_field :start_longitude %>
+    <%= f.label :length %>
+    <%= f.text_field :length %>
+    <%= f.label :difficulty %>
+    <%= f.text_field :difficulty %>
+    <%= f.label :elevation %>
+    <%= f.text_field :elevation %>
+
+    <%= f.submit 'Add Trail' %>
+  <% end %>
+<% else %>
+  <% flash.now[:warning] = "You need to log in first." %>
+<% end %>
