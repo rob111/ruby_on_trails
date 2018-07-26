@@ -4,6 +4,7 @@ const ReviewTile = props => {
   if (props.commentbody) {
     Comment = "Comment:"
   }
+
     return (
       <div>
         <div id="review_username">
@@ -15,6 +16,10 @@ const ReviewTile = props => {
         <div id="review_comment">
           {Comment} {props.commentbody}
         </div>
+        <div>
+          {props.editReviewLink}
+        </div>
+        <hr />
       </div>
     )
   }

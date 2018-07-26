@@ -22,15 +22,30 @@ class ReviewsController < ApplicationController
   end
 
   def edit
-
+    @review = Review.find(params[:id])
+    @trail = Trail.find(params[:trail_id])
   end
 
   def update
+    @trail = Trail.find(params[:trail_id])
+    @review = Review.find(params[:id])
+    if  current_user.id == @review.user_id
+      if @review.update(review_params)
+        flash[:notice] = "Review updated successfully"
+        redirect_to @trail
+      else
+        flash.now[:warning] = @review.errors.full_messages.join(', ')
+        render :edit
+      end
+    else
+      flash[:warning] = "This is not your review"
+      redirect_to @trail
+    end
 
   end
 
   def authorize_user
-    if !user_signed_in? 
+    if !user_signed_in?
       flash[:notice] = "You do not have access to this page."
       redirect_to root_path
     end
