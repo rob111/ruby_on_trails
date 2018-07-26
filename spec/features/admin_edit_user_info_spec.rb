@@ -23,8 +23,6 @@ feature 'admin edit user info', %Q{
 
     fill_in 'Username', with: 'usertest22'
     click_button 'Update User'
-    save_and_open_page
-
 
     expect(page).to have_content('User was successfully updated.')
   end
