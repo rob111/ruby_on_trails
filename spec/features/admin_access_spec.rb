@@ -49,8 +49,10 @@ feature 'admin access', %Q{
     expect(page).to have_content(admin1.email)
   end
 
-  scenario 'non-admin cannot access user edit page' do
+  scenario 'non-admin cannot access other user\'s edit page' do
     member1 = FactoryBot.create(:user)
+    member2 = FactoryBot.create(:user)
+
 
     visit new_user_session_path
 
@@ -58,7 +60,7 @@ feature 'admin access', %Q{
     fill_in 'Password', with: member1.password
 
     click_button 'Log in'
-    visit "/users/#{member1.username}"
+    visit "/users/#{member2.username}/edit"
 
     expect(page).to_not have_content('Admin Section')
     expect(page).to have_content('You do not have access to this page')

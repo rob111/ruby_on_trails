@@ -7,4 +7,6 @@ class Api::V1::TrailsController < ApplicationController
     @trail = Trail.find(params[:id])
     render json: @trail
   end
+
+
 end
