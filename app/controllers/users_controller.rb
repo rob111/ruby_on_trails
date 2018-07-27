@@ -28,7 +28,6 @@ class UsersController < ApplicationController
     @user = User.find_by(username: params[:id])
     if @user.update(user_params)
       redirect_to @user, notice: 'User was successfully updated.'
-      # redirect_to "/users/#{@user.id}"
     else
       flash[:notice] = 'All fields must be completed'
       render :show
