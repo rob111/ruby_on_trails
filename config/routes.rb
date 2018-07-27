@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   root 'trails#index'
+
   devise_for :users, controllers: { registrations: 'registrations' }
+
+  resources :trails, only: [:index, :show, :new, :create]
 
   resources :trails, only: [:index, :show, :new] do
     resources :reviews
