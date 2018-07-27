@@ -12,8 +12,8 @@ class Api::V1::TrailsController < ApplicationController
     if current_user
       active_user_id = current_user.id
     end
-    if current_user.admin?
-      admin = true
+    if user_signed_in?
+      admin = current_user.admin?
     end
     reviews.each do |review|
       user = User.find(review.user_id)
@@ -21,6 +21,5 @@ class Api::V1::TrailsController < ApplicationController
     end
     render json: {trail: trail, reviews: reviews, usernames: usernames, active_user_id: active_user_id, admin: admin}
   end
-
 
 end
