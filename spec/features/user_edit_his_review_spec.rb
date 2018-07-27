@@ -82,8 +82,6 @@ feature 'user edits their own review', %Q{
 
     visit edit_trail_review_path(trail.id, trail.reviews.first.id)
 
-    click_button 'Edit Review'
-
-    expect(page).to have_content('This is not your review')
+    expect(page).to_not have_content('Edit Review')
   end
 end
