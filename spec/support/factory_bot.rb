@@ -8,5 +8,11 @@ FactoryBot.define do
     password_confirmation 'password'
   end
 
-
+  factory :trail do
+    sequence(:name) {|n| "trail#{n}" }
+    sequence(:street) {|n| "#{n} Main Street" }
+    sequence(:city) {|n| "Boston" }
+    sequence(:state) {|n| "MA" }
+    sequence(:length) {|n| "#{n}" }
+  end
 end
