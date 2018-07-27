@@ -12,15 +12,27 @@
   <div class="actions">
     <%= f.submit %>
   </div>
-  <br />
 <% end %>
 
 <hr>
 
 <%= form_for(@user) do |f| %>
   <div class="field">
+    <%= f.file_field :profile_photo %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit  'Upload Photo'%>
+  </div>
+<% end %>
+
+
+<hr>
+
+<%= form_for(@user) do |f| %>
+  <div class="field">
     <%= f.label :password %><br />
-    <%= f.text_field :password %>
+    <%= f.password_field :password %>
   </div>
 
   <div class="actions">

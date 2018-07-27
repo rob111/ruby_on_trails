@@ -5,7 +5,8 @@ class UserShow extends Component {
     super(props)
     this.state = {
       userName: '',
-      email: ''
+      email: '',
+      profile_photo: {}
     }
   }
 
@@ -24,7 +25,8 @@ class UserShow extends Component {
     .then(body => {
       this.setState({
         userName: body.username,
-        email: body.email
+        email: body.email,
+        profile_photo: body.profile_photo
       })
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
@@ -33,9 +35,10 @@ class UserShow extends Component {
   render() {
     return (
       <div>
+        <img src={this.state.profile_photo.url} />
         <h2>{this.state.userName}</h2>
         <div id='email'>Email: {this.state.email}</div>
-        <a href={'/users/' + this.state.userName + '/edit'}>Edit Your Profile</a>
+        <a href='/users/edit'>Edit Your Profile</a>
       </div>
     )
   }

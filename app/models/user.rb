@@ -6,6 +6,8 @@ class User < ApplicationRecord
   has_many :reviews
   validates :username, presence: true, uniqueness: true
 
+  mount_uploader :profile_photo, ProfilePhotoUploader
+
   def to_param
     username
   end

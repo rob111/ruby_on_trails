@@ -55,7 +55,6 @@ describe('TrailShowContainerSpec', () => {
 
     it('renders expected trail and associated reviews returned from api call', (done) => {
       setTimeout(() => {
-        console.log(wrapper.debug())
         expect(wrapper.find('h2').first().text()).toEqual(trail.name)
         expect(wrapper.find('#street').text()).toEqual(`Street: ${trail.street}`)
         expect(wrapper.find('#difficulty').text()).toEqual(`Difficulty rating: ${trail.difficulty}`)
