@@ -21,5 +21,8 @@ class Api::V1::TrailsController < ApplicationController
     end
     render json: {trail: trail, reviews: reviews, usernames: usernames, active_user_id: active_user_id, admin: admin}
   end
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
 end
