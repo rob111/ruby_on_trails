@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    if isGivenUserLoggedIn || current_user.admin?
+    if is_given_user_logged_in || current_user.admin?
     else
       flash[:notice] = "You do not have access to this page."
       redirect_to root_path
@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    if isGivenUserLoggedIn || current_user.admin?
+    if is_given_user_logged_in || current_user.admin?
       @user = User.find_by(username: params[:id])
       render :edit
     else
@@ -44,7 +44,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def isGivenUserLoggedIn
+  def is_given_user_logged_in
     return params[:id] == current_user.username
   end
 
