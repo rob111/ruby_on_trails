@@ -8,3 +8,7 @@
 
   <%= f.submit 'Edit Review' %>
 <% end %>
+
+
+<%= button_to "Delete Review", {:controller => :reviews,
+      :action => 'destroy', :id => @review.id }, :method => :delete %>

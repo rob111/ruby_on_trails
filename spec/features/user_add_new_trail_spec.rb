@@ -20,11 +20,11 @@ feature 'user adds a new trail', %Q{
     expect(page).to_not have_content('You need to log in first.')
   end
 
-  scenario 'user cannot see to Trails Form Page without log in' do
+  scenario 'user cannot see Trails Form Page without log in' do
 
     visit new_trail_path
 
-    expect(page).to have_content("You need to log in first.")
+    expect(page).to have_content("You must be logged in to view that page.")
     expect(page).to_not have_content("Add New Trail")
   end
 

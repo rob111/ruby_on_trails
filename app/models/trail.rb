@@ -1,5 +1,5 @@
 class Trail < ApplicationRecord
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
   validates :name, presence: true, uniqueness: true
   validates :street, presence: true
   validates :city, presence: true
