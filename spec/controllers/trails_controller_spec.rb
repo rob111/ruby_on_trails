@@ -1,10 +1,6 @@
 require "rails_helper"
 
 RSpec.describe Api::V1::TrailsController, type: :controller do
-  # let!(:user) {User.create(username: 'Steve', email: 'steve@stphen.com', password: '111111')}
-  # let!(:first_trail) {Trail.create!(name: 'Happy Trail', length: 5, difficulty: 5, street: '123 Main', city: 'Boston', state: 'MA', zip: '02144')}
-  # let!(:review) {Review.create(rating: 5, comment: 'YO THIS TRAIL IS GREAT!', user_id: :user[:id], trail_id: :first_trail[:id])}
-  # let!(:second_trail) {Trail.create!(name: 'Sad Trail', length: 5555, difficulty: 1, street: '321 Main', city: 'Boston', state: 'MA', zip: '02144')}
   describe "GET#index" do
     it "should return a list of all the trails" do
       first_trail = Trail.create!(name: 'Happy Trail', length: 5, difficulty: 5, street: '123 Main', city: 'Boston', state: 'MA', zip: '02144')
