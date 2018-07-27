@@ -18,7 +18,7 @@ feature 'user edits their own review', %Q{
       length: '6',
       difficulty: '7',
       elevation: '80',
-      user_id: testuser
+      created_by: testuser.id
     )
 
     visit new_user_session_path
@@ -55,7 +55,7 @@ feature 'user edits their own review', %Q{
       length: '6',
       difficulty: '7',
       elevation: '80',
-      user_id: testuser
+      created_by: testuser.id
     )
 
     visit new_user_session_path

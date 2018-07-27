@@ -7,7 +7,7 @@ feature 'user adds a new trail', %Q{
 } do
   scenario 'navigate to new review form' do
     user = FactoryBot.create(:user, username: "testuser")
-    trail = Trail.create!(name: 'First Trail', street: '123 Maple St.', city: 'Boston', state: 'MA', zip: '12345', start_latitude: '1', start_longitude: '2', length: '6', difficulty: '7', elevation: '80', user_id: user)
+    trail = Trail.create!(name: 'First Trail', street: '123 Maple St.', city: 'Boston', state: 'MA', zip: '12345', start_latitude: '1', start_longitude: '2', length: '6', difficulty: '7', elevation: '80', created_by: user.id)
 
     visit new_user_session_path
 
@@ -29,7 +29,7 @@ feature 'user adds a new trail', %Q{
 
   scenario 'user cannot add a review without signing in' do
     user = FactoryBot.create(:user, username: "testuser")
-    trail = Trail.create!(name: 'First Trail', street: '123 Maple St.', city: 'Boston', state: 'MA', zip: '12345', start_latitude: '1', start_longitude: '2', length: '6', difficulty: '7', elevation: '80', user_id: user)
+    trail = Trail.create!(name: 'First Trail', street: '123 Maple St.', city: 'Boston', state: 'MA', zip: '12345', start_latitude: '1', start_longitude: '2', length: '6', difficulty: '7', elevation: '80', created_by: user.id)
 
     visit new_trail_review_path(trail.id)
 
