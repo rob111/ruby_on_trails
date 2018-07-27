@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   root 'trails#index'
-  devise_for :users
-  resources :trails, only: [:index, :show, :new, :create]
 
+  devise_for :users, controllers: { registrations: 'registrations' }
+
+  resources :trails, only: [:index, :show, :new, :create]
 
   resources :trails, only: [:index, :show, :new] do
     resources :reviews
@@ -10,6 +11,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
+      resources :users, only: [:show]
       resources :trails, only: [:index, :show]
     end
   end
