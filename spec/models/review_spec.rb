@@ -1,24 +1,32 @@
 require 'rails_helper'
 
 RSpec.describe Review do
-  let(:user) { User.new(
-    username: 'Steve',
-    email: 'steve@hotmail.com',
-    password: 'password1'
-  ) }
-  let(:trail) { Trail.new(
-    name: 'Sameple Trail',
-    street: '789 Street Road',
-    city: 'Boston',
-    state: 'RI',
-    length: '8'
-    ) }
-  let(:review) { Review.new(
-    rating: 4,
-    trail: trail,
-    user: user
-  ) }
-
+  let(:user) do
+    User.new({
+      username: 'Steve',
+      email: 'steve@hotmail.com',
+      password: 'password1'
+    })
+  end
+  
+  let(:trail) do
+    Trail.new({
+      name: 'Sameple Trail',
+      street: '789 Street Road',
+      city: 'Boston',
+      state: 'RI',
+      length: '8'
+    })
+  end
+  
+  let(:review) do
+    Review.new({
+      rating: 4,
+      trail: trail,
+      user: user
+    })
+  end
+  
   describe 'validations' do
     describe 'rating' do
       it 'must be present' do
