@@ -23,7 +23,7 @@ class TrailsController < ApplicationController
       flash[:notice] = "Trail added successfully"
       redirect_to trails_path
     else
-      flash.now[:warning] = @trail.errors.full_messages.join(' * ')
+      @errors = @trail.errors.full_messages
       render :new
     end
   end
