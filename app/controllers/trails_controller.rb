@@ -39,7 +39,7 @@ class TrailsController < ApplicationController
       flash[:notice] = 'The trail was edited successfully.'
       redirect_to trail_path(@trail)
     else
-      flash.now[:notice] = @trail.errors.full_messages.join(' * ')
+      @errors = @trail.errors.full_messages
       render :edit
     end
   end
