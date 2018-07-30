@@ -3,9 +3,7 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: { registrations: 'registrations' }
 
-  resources :trails, only: [:index, :show, :new, :create]
-
-  resources :trails, only: [:index, :show, :new] do
+  resources :trails do
     resources :reviews
   end
 

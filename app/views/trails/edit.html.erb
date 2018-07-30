@@ -1,12 +1,11 @@
-<%- if current_user -%>
+<%- if current_user.admin? -%>
   <% if @errors %>
     <% @errors.each do |error| %>
       <%= error %><br>
     <% end %>
   <% end %>
 
-  <h2>Trails Form Page</h2>
-  <%= @user.username %>
+  <h2>Trail Edit Page</h2>
   <%= form_for @trail do |f| %>
     <%= f.label :name %>
     <%= f.text_field :name %>
@@ -29,8 +28,12 @@
     <%= f.label :elevation %>
     <%= f.text_field :elevation %>
 
-    <%= f.submit 'Add Trail' %>
+    <%= f.submit 'Edit Trail' %>
   <% end %>
+
+  <%= link_to 'Delete This Trail', trail_path(@trail),
+    method: :delete,
+    data: { confirm: 'Are you sure?' } %>
 <% else %>
-  <% flash.now[:warning] = "You need to log in first." %>
+  <% flash.now[:notice] = "You are not authorized to view this page." %>
 <% end %>
