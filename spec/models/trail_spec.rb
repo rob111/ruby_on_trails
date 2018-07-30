@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Trail do
   let(:trail) { Trail.new(
-    name: 'Sameple Trail',
+    name: 'Sample Trail',
     street: '789 Street Road',
     city: 'Boston',
     state: 'RI',
