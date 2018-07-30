@@ -1,4 +1,10 @@
 <%- if current_user.admin? -%>
+  <% if @errors %>
+    <% @errors.each do |error| %>
+      <%= error %><br>
+    <% end %>
+  <% end %>
+
   <h2>Trail Edit Page</h2>
   <%= form_for @trail do |f| %>
     <%= f.label :name %>

@@ -1,6 +1,12 @@
-<h1>Trails Form Page</h1>
 <%- if current_user -%>
-<%= @user.username %>
+  <% if @errors %>
+    <% @errors.each do |error| %>
+      <%= error %><br>
+    <% end %>
+  <% end %>
+
+  <h2>Trails Form Page</h2>
+  <%= @user.username %>
   <%= form_for @trail do |f| %>
     <%= f.label :name %>
     <%= f.text_field :name %>
