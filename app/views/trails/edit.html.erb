@@ -1,0 +1,33 @@
+<%- if current_user.admin? -%>
+  <h2>Trail Edit Page</h2>
+  <%= form_for @trail do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.label :street %>
+    <%= f.text_field :street %>
+    <%= f.label :city %>
+    <%= f.text_field :city %>
+    <%= f.label :state %>
+    <%= f.text_field :state %>
+    <%= f.label :zip %>
+    <%= f.text_field :zip %>
+    <%= f.label :start_latitude %>
+    <%= f.text_field :start_latitude %>
+    <%= f.label :start_longitude %>
+    <%= f.text_field :start_longitude %>
+    <%= f.label :length %>
+    <%= f.text_field :length %>
+    <%= f.label :difficulty %>
+    <%= f.text_field :difficulty %>
+    <%= f.label :elevation %>
+    <%= f.text_field :elevation %>
+
+    <%= f.submit 'Edit Trail' %>
+  <% end %>
+
+  <%= link_to 'Delete This Trail', trail_path(@trail),
+    method: :delete,
+    data: { confirm: 'Are you sure?' } %>
+<% else %>
+  <% flash.now[:notice] = "You are not authorized to view this page." %>
+<% end %>

@@ -23,12 +23,34 @@ class TrailsController < ApplicationController
       flash[:notice] = "Trail added successfully"
       redirect_to trails_path
     else
-      flash.now[:warning] = @trail.errors.full_messages.join(', ')
+      flash.now[:warning] = @trail.errors.full_messages.join(' * ')
       render :new
     end
   end
 
+  def edit
+    @trail = Trail.find(params[:id])
+  end
 
+  def update
+    @trail = Trail.find(params[:id])
+
+    if @trail.update_attributes(trail_params)
+      flash[:notice] = 'The trail was edited successfully.'
+      redirect_to trail_path(@trail)
+    else
+      flash.now[:notice] = @trail.errors.full_messages.join(' * ')
+      render :edit
+    end
+  end
+
+  def destroy
+    @trail = Trail.find(params[:id])
+    @trail.destroy
+
+    flash[:notice] = 'The trail was deleted.'
+    redirect_to trails_path
+  end
 
   private
   def authorize_user
