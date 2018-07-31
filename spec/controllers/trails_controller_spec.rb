@@ -34,7 +34,7 @@ RSpec.describe Api::V1::TrailsController, type: :controller do
       expect(response.status).to eq 200
       expect(response.content_type).to eq("application/json")
 
-      expect(returned_json.length).to eq 5
+      expect(returned_json.length).to eq 6
       expect(returned_json["trail"]["name"]).to eq "Happy Trail"
       expect(returned_json["trail"]["difficulty"]).to eq 5
       expect(returned_json["trail"]["created_by"]).to eq user.id
