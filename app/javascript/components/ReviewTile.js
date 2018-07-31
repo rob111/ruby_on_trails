@@ -17,7 +17,7 @@ const ReviewTile = props => {
         <div id="review_comment">
           {Comment} {props.commentbody}
         </div>
-        <div>
+        <div className="editReviewLink">
           {props.editReviewLink}
         </div>
         <div>

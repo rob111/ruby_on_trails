@@ -30,7 +30,6 @@ class VoteButton extends Component {
   }
 
   recordLikes(event) {
-    // debugger
     event.preventDefault();
 
     let formPayload = {
@@ -89,7 +88,7 @@ class VoteButton extends Component {
     return (
       <div>
           {showVoterButtons}
-        <div>
+        <div id="voteCount">
           Votes: {this.state.count}
         </div>
     </div>
