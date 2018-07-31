@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import ReviewTile from '../components/ReviewTile'
 
+
 class TrailShow extends Component {
   constructor(props) {
     super(props)
@@ -17,7 +18,8 @@ class TrailShow extends Component {
       elevation: '',
       active_user_id: null,
       reviews: [],
-      usernames: []
+      usernames: [],
+      likes: []
     }
   }
 
@@ -49,7 +51,8 @@ class TrailShow extends Component {
         elevation: body.trail.elevation,
         active_user_id: body.active_user_id,
         reviews: body.reviews,
-        usernames: body.usernames
+        usernames: body.usernames,
+        likes: body.likes
       })
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
@@ -65,20 +68,24 @@ class TrailShow extends Component {
       new_review_link = <a href={`/trails/${this.props.params.id}/reviews/new`}>Review This Trail</a>
     }
 
+
     let reviews = this.state.reviews.map((review, index) => {
       let editReviewLink = '';
       if (this.state.active_user_id === review.user_id) {
         editReviewLink = <a href={`/trails/${this.props.params.id}/reviews/${review.id}/edit`}>Edit Review</a>
       }
+
       return (
         <div>
           <ReviewTile
             key={review.id}
             id={review.id}
             username={this.state.usernames[index]}
+            likes={this.state.likes[index]}
             rating={review.rating}
             commentbody={review.comment}
             editReviewLink={editReviewLink}
+            currentUser={this.state.active_user_id}
           />
         </div>
       )
@@ -106,6 +113,7 @@ class TrailShow extends Component {
           <h2>{review_title}</h2>
           {reviews}
         </div>
+
       </div>
     )
   }

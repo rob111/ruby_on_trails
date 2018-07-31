@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import VoteButton from '../components/VoteButton';
 
 const ReviewTile = props => {
   if (props.commentbody) {
@@ -18,6 +19,13 @@ const ReviewTile = props => {
         </div>
         <div>
           {props.editReviewLink}
+        </div>
+        <div>
+          <VoteButton
+            likes={props.likes}
+            currentUser={props.currentUser}
+            reviewId={props.id}
+            />
         </div>
         <hr />
       </div>

@@ -7,6 +7,7 @@ class Api::V1::TrailsController < ApplicationController
     trail = Trail.find(params[:id])
     reviews = trail.reviews.order(created_at: :desc)
     usernames = []
+    likes = []
     active_user_id = nil
     if current_user
       active_user_id = current_user.id
@@ -14,7 +15,8 @@ class Api::V1::TrailsController < ApplicationController
     reviews.each do |review|
       user = User.find(review.user_id)
       usernames << user.username
+      likes << review.likes
     end
-    render json: {trail: trail, reviews: reviews, usernames: usernames, active_user_id: active_user_id}
+    render json: {trail: trail, reviews: reviews, usernames: usernames, active_user_id: active_user_id, likes: likes}
   end
 end
