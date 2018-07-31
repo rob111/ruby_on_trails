@@ -19,7 +19,8 @@ class TrailShow extends Component {
       active_user_id: null,
       reviews: [],
       usernames: [],
-      likes: []
+      likes: [],
+      admin: null
     }
   }
 
@@ -50,6 +51,7 @@ class TrailShow extends Component {
         difficulty: body.trail.difficulty,
         elevation: body.trail.elevation,
         active_user_id: body.active_user_id,
+        admin: body.admin,
         reviews: body.reviews,
         usernames: body.usernames,
         likes: body.likes
@@ -68,10 +70,14 @@ class TrailShow extends Component {
       new_review_link = <a href={`/trails/${this.props.params.id}/reviews/new`}>Review This Trail</a>
     }
 
+    let edit_trail_link = ''
+    if (this.state.admin) {
+      edit_trail_link = <a href={`/trails/${this.props.params.id}/edit`}>Edit This Trail</a>
+    }
 
     let reviews = this.state.reviews.map((review, index) => {
       let editReviewLink = '';
-      if (this.state.active_user_id === review.user_id) {
+      if (this.state.active_user_id === review.user_id || this.state.admin) {
         editReviewLink = <a href={`/trails/${this.props.params.id}/reviews/${review.id}/edit`}>Edit Review</a>
       }
 
@@ -106,9 +112,8 @@ class TrailShow extends Component {
           <div id='difficulty'>Difficulty rating: {this.state.difficulty}<br/></div>
         </div>
         <br/>
-        <div>
-          {new_review_link}
-        </div>
+        <div>{new_review_link}</div>
+        <div>{edit_trail_link}</div>
         <div>
           <h2>{review_title}</h2>
           {reviews}

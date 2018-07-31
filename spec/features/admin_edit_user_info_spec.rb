@@ -25,7 +25,5 @@ feature 'admin edit user info', %Q{
     click_button 'Update User'
 
     expect(page).to have_content('User was successfully updated.')
-    expect(page).to have_content('Last updated')
-    expect(page).to have_content(user.email)
   end
 end

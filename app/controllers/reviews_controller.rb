@@ -1,5 +1,7 @@
 class ReviewsController < ApplicationController
-  before_action :authorize_user
+  before_action :authorize_user, except: [:index, :show, :edit, :update, :destroy]
+  before_action :authorize_editor, except: [:new, :create]
+
 
   def new
     @trail = Trail.find(params[:trail_id])
@@ -29,7 +31,7 @@ class ReviewsController < ApplicationController
   def update
     @trail = Trail.find(params[:trail_id])
     @review = Review.find(params[:id])
-    if  current_user.id == @review.user_id
+    if  current_user.id == @review.user_id || current_user.admin?
       if @review.update(review_params)
         flash[:notice] = "Review updated successfully"
         redirect_to @trail
@@ -41,8 +43,22 @@ class ReviewsController < ApplicationController
       flash[:warning] = "This is not your review"
       redirect_to @trail
     end
-
   end
+
+  def destroy
+    if  current_user.id == @review.user_id || current_user.admin?
+      review = Review.find(params[:id])
+      review.destroy
+      flash[:notice] = "Review successfully deleted"
+      redirect_to Trail.find(params[:trail_id])
+    else
+      flash[:warning] = "This is not your review"
+      redirect_to trail_path(Trail.find(params[:trail_id]))
+    end
+  end
+
+
+  private
 
   def authorize_user
     if !user_signed_in?
@@ -51,7 +67,15 @@ class ReviewsController < ApplicationController
     end
   end
 
-  private
+  def authorize_editor
+    if !current_user.admin?
+      if current_user != Review.find(params[:id]).user
+        flash[:notice] = "You do not have access to this page."
+        redirect_to trail_path(Trail.find(params[:trail_id]))
+      end
+    end
+  end
+
   def review_params
     params.require(:review).permit(:rating, :comment)
   end

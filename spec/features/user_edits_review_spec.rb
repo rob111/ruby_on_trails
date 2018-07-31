@@ -7,19 +7,7 @@ feature 'user edits their own review', %Q{
 } do
   scenario 'edit trails review' do
     testuser = FactoryBot.create(:user, username: "testuser")
-    trail = Trail.create!(
-      name: 'First Trail',
-      street: '123 Maple St.',
-      city: 'Boston',
-      state: 'MA',
-      zip: '12345',
-      start_latitude: '1',
-      start_longitude: '2',
-      length: '6',
-      difficulty: '7',
-      elevation: '80',
-      user_id: testuser
-    )
+    trail = FactoryBot.create(:trail)
 
     visit new_user_session_path
 
@@ -44,19 +32,7 @@ feature 'user edits their own review', %Q{
 
   scenario 'cannot edit review because this review created by someone else' do
     testuser = FactoryBot.create(:user, username: "testuser")
-    trail = Trail.create!(
-      name: 'First Trail',
-      street: '123 Maple St.',
-      city: 'Boston',
-      state: 'MA',
-      zip: '12345',
-      start_latitude: '1',
-      start_longitude: '2',
-      length: '6',
-      difficulty: '7',
-      elevation: '80',
-      user_id: testuser
-    )
+    trail = FactoryBot.create(:trail)
 
     visit new_user_session_path
 
@@ -82,8 +58,6 @@ feature 'user edits their own review', %Q{
 
     visit edit_trail_review_path(trail.id, trail.reviews.first.id)
 
-    click_button 'Edit Review'
-
-    expect(page).to have_content('This is not your review')
+    expect(page).to_not have_content('Edit Review')
   end
 end

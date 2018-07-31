@@ -1,12 +1,17 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
   has_many :reviews
   has_many :likes
   has_many :reviews, through: :likes
+
+  has_many :reviews, dependent: :destroy
+
   validates :username, presence: true, uniqueness: true
+
+  mount_uploader :profile_photo, ProfilePhotoUploader
 
   def to_param
     username

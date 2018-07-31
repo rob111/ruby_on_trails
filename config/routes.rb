@@ -1,16 +1,16 @@
 Rails.application.routes.draw do
   root 'trails#index'
-  devise_for :users
-  # get "trails/:trail_id/reviews/:review_id/likes", to: "likes#create"
 
   resources :trails, only: [:index, :show, :new, :create]
+  devise_for :users, controllers: { registrations: 'registrations' }
 
-  resources :trails, only: [:index, :show, :new] do
+  resources :trails do
     resources :reviews
   end
 
   namespace :api do
     namespace :v1 do
+      resources :users, only: [:show]
       resources :trails, only: [:index, :show]
       resources :likes, only: [:create, :index]
     end
