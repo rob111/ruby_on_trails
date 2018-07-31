@@ -31,7 +31,7 @@ class ReviewsController < ApplicationController
   def update
     @trail = Trail.find(params[:trail_id])
     review = Review.find(params[:id])
-    if  current_user.id == review.user_id || current_user.admin?
+    if current_user.id == review.user_id || current_user.admin?
       if review.update(review_params)
         flash[:notice] = "Review updated successfully"
         redirect_to @trail
@@ -48,7 +48,6 @@ class ReviewsController < ApplicationController
   def destroy
     review = Review.find(params[:id])
     if  current_user.id == review.user_id || current_user.admin?
-      review = Review.find(params[:id])
       review.destroy
       flash[:notice] = "Review successfully deleted"
       redirect_to Trail.find(params[:trail_id])
