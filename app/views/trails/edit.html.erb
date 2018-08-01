@@ -5,7 +5,7 @@
     <% end %>
   <% end %>
 
-  <h2>Trail Edit Page</h2>
+  <h2>Edit This Trail</h2>
   <%= form_for @trail do |f| %>
     <%= f.label :name %>
     <%= f.text_field :name %>
@@ -36,10 +36,10 @@
     <%= f.label :profile_photo %>
     <%= f.file_field :profile_photo %>
 
-    <%= f.submit 'Edit Trail' %>
+    <%= f.submit 'Edit Trail', class: "btn-and-link" %>
   <% end %>
 
-  <%= link_to 'Delete This Trail', trail_path(@trail),
+  <%= link_to 'Delete This Trail', trail_path(@trail), class: 'btn-and-link white-link',
     method: :delete,
     data: { confirm: 'Are you sure?' } %>
 <% else %>

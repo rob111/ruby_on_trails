@@ -13,8 +13,7 @@ feature 'user adds a new trail', %Q{
 
     fill_in 'Email', with: user.email
     fill_in 'Password', with: user.password
-    # save_and_open_page
-    click_button 'Log in'
+    click_button 'Log In'
 
     visit new_trail_review_path(trail.id)
     fill_in 'Rating', with: 1

@@ -23,7 +23,7 @@ feature 'Edit user info', %Q{
 
      fill_in 'Email', with: user.email
      fill_in 'Password', with: user.password
-     click_button 'Log in'
+     click_button 'Log In'
 
      visit user_path(user2)
 
@@ -39,7 +39,7 @@ feature 'Edit user info', %Q{
 
      fill_in 'Email', with: user.email
      fill_in 'Password', with: user.password
-     click_button 'Log in'
+     click_button 'Log In'
 
      visit edit_user_path(user2)
 
@@ -53,7 +53,7 @@ feature 'Edit user info', %Q{
 
      fill_in 'Email', with: user.email
      fill_in 'Password', with: user.password
-     click_button 'Log in'
+     click_button 'Log In'
 
      visit user_path(user)
 

@@ -6,7 +6,8 @@ class UserShow extends Component {
     this.state = {
       userName: '',
       email: '',
-      profile_photo: {}
+      profilePhoto: {},
+      reviewCount: 0
     }
   }
 
@@ -24,9 +25,10 @@ class UserShow extends Component {
     .then(response => response.json())
     .then(body => {
       this.setState({
-        userName: body.username,
-        email: body.email,
-        profile_photo: body.profile_photo
+        userName: body.user.username,
+        email: body.user.email,
+        profilePhoto: body.user.profile_photo,
+        reviewCount: body.review_count
       })
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
@@ -35,10 +37,13 @@ class UserShow extends Component {
   render() {
     return (
       <div>
-        <img src={this.state.profile_photo.url} />
         <h2>{this.state.userName}</h2>
-        <div id='email'>Email: {this.state.email}</div>
-        <a href='/users/edit'>Edit Your Profile</a>
+        <div className="panel-non-link">
+          <img src={this.state.profilePhoto.url} />
+          <div id='email'>Email: {this.state.email}</div>
+          <div id='user-review-count'>Reviews Submitted: {this.state.reviewCount}</div>
+        </div>
+        <a className="btn-and-link white-link" href='/users/edit'>Edit Your Profile</a>
       </div>
     )
   }

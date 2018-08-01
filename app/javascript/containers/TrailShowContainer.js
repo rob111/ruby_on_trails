@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import ReviewTile from '../components/ReviewTile'
 
+
 class TrailShow extends Component {
   constructor(props) {
     super(props)
@@ -74,40 +75,44 @@ class TrailShow extends Component {
     }
     let review_title = null
     if (this.state.reviews.length > 0) {
-      review_title = "Reviews:"
+      review_title = <h2>Reviews</h2>
     }
     let new_review_link = ''
     if (this.state.active_user_id) {
-      new_review_link = <a href={`/trails/${this.props.params.id}/reviews/new`}>Review This Trail</a>
+      new_review_link = <div><a href={`/trails/${this.props.params.id}/reviews/new`}><div className="btn-and-link white-link">Review This Trail</div></a></div>
     }
 
     let edit_trail_link = ''
     if (this.state.admin) {
-      edit_trail_link = <a href={`/trails/${this.props.params.id}/edit`}>Edit This Trail</a>
+      edit_trail_link = <div><a className='btn-and-link white-link' href={`/trails/${this.props.params.id}/edit`}>Edit This Trail</a></div>
     }
 
     let reviews = this.state.reviews.map((review, index) => {
       let editReviewLink = '';
       if (this.state.active_user_id === review.user_id || this.state.admin) {
-        editReviewLink = <a href={`/trails/${this.props.params.id}/reviews/${review.id}/edit`}>Edit Review</a>
+        editReviewLink = <div><a className='btn-and-link white-link' href={`/trails/${this.props.params.id}/reviews/${review.id}/edit`}>Edit Review</a></div>
       }
+
       return (
         <div>
           <ReviewTile
             key={review.id}
             id={review.id}
-            username={this.state.usernames[index]}
+            username={review.user}
+            likes={review.likes}
             rating={review.rating}
             commentbody={review.comment}
             editReviewLink={editReviewLink}
+            currentUser={this.state.active_user_id}
+            voteCount={review.votes}
+
           />
         </div>
       )
     }, this)
-
     return (
       <div>
-        <div>
+        <div className='panel-non-link'>
           <h2>{this.state.name}</h2>
           {trailPhoto}
           {streetShow}
@@ -120,13 +125,13 @@ class TrailShow extends Component {
           <div id='ascent'>Ascent: {this.state.ascent}ft<br/></div>
           <div id='difficulty'>Difficulty rating: {this.state.difficulty}<br/></div>
         </div>
-        <br/>
-        <div>{new_review_link}</div>
-        <div>{edit_trail_link}</div>
+        {new_review_link}
+        {edit_trail_link}
         <div>
-          <h2>{review_title}</h2>
+          {review_title}
           {reviews}
         </div>
+
       </div>
     )
   }
