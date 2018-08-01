@@ -42,7 +42,6 @@ describe('TrailsIndexContainerSpec', () => {
 
     it('renders each trail returned from api call', (done) => {
       setTimeout(() => {
-        debugger
         expect(wrapper.find('#trail_item').length).toEqual(trails.length)
         expect(wrapper.find('#trail_item').text()).toEqual(trails[0].name)
         done()

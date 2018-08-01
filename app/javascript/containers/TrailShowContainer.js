@@ -59,7 +59,7 @@ class TrailShow extends Component {
   render() {
     let review_title = null
     if (this.state.reviews.length > 0) {
-      review_title = "Reviews"
+      review_title = <h2>Reviews</h2>
     }
     let new_review_link = ''
     if (this.state.active_user_id) {
@@ -99,21 +99,21 @@ class TrailShow extends Component {
         <div>
           <h2>{this.state.name}</h2>
           <div className='panel-non-link'>
-            <div id='street'>Street: {this.state.street}</div>
-            <div id='city'>City: {this.state.city}</div>
-            <div id='state'>State: {this.state.state}</div>
-            <div id='zip'>Zip code: {this.state.zip}</div>
-            <div id='start_lat'>Starting latitude: {this.state.start_latitutde}</div>
-            <div id='start_lon'>Starting longitude: {this.state.start_longitude}</div>
-            <div id='length'>Trail length: {this.state.length}</div>
-            <div id='elevation'>Elevation: {this.state.elevation}</div>
-            <div id='difficulty'>Difficulty rating: {this.state.difficulty}</div>
+            <div id='street'><span className='bold'>Street:</span> {this.state.street}</div>
+            <div id='city'><span className='bold'>City:</span> {this.state.city}</div>
+            <div id='state'><span className='bold'>State:</span> {this.state.state}</div>
+            <div id='zip'><span className='bold'>Zip code:</span> {this.state.zip}</div>
+            <div id='start_lat'><span className='bold'>Starting latitude:</span> {this.state.start_latitutde}</div>
+            <div id='start_lon'><span className='bold'>Starting longitude:</span> {this.state.start_longitude}</div>
+            <div id='length'><span className='bold'>Trail length:</span> {this.state.length}</div>
+            <div id='elevation'><span className='bold'>Elevation:</span> {this.state.elevation}</div>
+            <div id='difficulty'><span className='bold'>Difficulty rating:</span> {this.state.difficulty}</div>
           </div>
         </div>
         {new_review_link}
         {edit_trail_link}
         <div>
-          <h2>{review_title}</h2>
+          {review_title}
           {reviews}
         </div>
 

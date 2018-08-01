@@ -11,11 +11,11 @@ RSpec.describe Api::V1::UsersController, type: :controller do
       expect(response.status).to eq 200
       expect(response.content_type).to eq("application/json")
 
-      expect(returned_json.length).to eq 7
-      expect(returned_json["email"]).to eq user.email
-      expect(returned_json["role"]).to eq "member"
-      expect(returned_json["id"]).to eq user.id
-      expect(returned_json["profile_photo"]["url"]).to eq user.profile_photo.url
+      expect(returned_json.length).to eq 2
+      expect(returned_json["user"]["email"]).to eq user.email
+      expect(returned_json["user"]["role"]).to eq "member"
+      expect(returned_json["user"]["id"]).to eq user.id
+      expect(returned_json["user"]["profile_photo"]["url"]).to eq user.profile_photo.url
 
     end
   end

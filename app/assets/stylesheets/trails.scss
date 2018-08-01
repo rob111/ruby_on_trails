@@ -20,16 +20,25 @@ h2 {
   margin: 2.8rem 0rem 1.8rem 0rem;
   font-size: 3rem;
   font-family: sans-serif;
+  background-color: #b7c1b3;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  // border: 3px solid #4a6741;
+  box-shadow: 8px 8px 5px grey;
+  border-radius: 4px;
 }
 
 a:hover{
   color: white;
 }
 
-hr {
-  background-color: #A9A9A9;
-  border-color: #A9A9A9;
+a {
+  border-radius: 4px;
 }
+// hr {
+//   background-color: #A9A9A9;
+//   border-color: #A9A9A9;
+// }
 
 .btn-and-link:active {
   transform: translateY(4px);
@@ -49,6 +58,7 @@ hr {
   display: inline-block;
   font-size: 16px;
   margin: 15px;
+  border-radius: 4px;
 }
 
 .top-bar {
@@ -72,11 +82,13 @@ hr {
   border: 3px solid #4a6741;
   padding: 15px 32px;
   margin-bottom: 15px;
+  border-radius: 4px;
 }
 
 .panel {
   background-color: #F2F2F2;
   border: 3px solid #4a6741;
+  border-radius: 4px;
 }
 
 .admin-edit {
@@ -88,6 +100,38 @@ hr {
   font-family: sans-serif;
 }
 
-#center {
-  align-content: center;
+div.selected {
+  background-color: #A9A9A9;
+}
+
+.vote-button {
+  background-color: #dcdcdc;
+}
+
+.vote-box {
+  margin-top: .5rem;
+}
+
+#voteCount {
+  margin-bottom: .75rem;
+}
+
+#upvoteContainer {
+  display: inline;
+  padding: .3rem;
+  width: 8rem;
+  margin: 1rem;
+  border-radius: 4px;
+}
+
+#downvoteContainer {
+  display: inline;
+  padding: .3rem;
+  width: 8rem;
+  margin: 1rem;
+  border-radius: 4px;
+}
+
+.review-label {
+  font-weight: bold;
 }

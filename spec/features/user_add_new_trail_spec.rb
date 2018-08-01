@@ -12,11 +12,10 @@ feature 'user adds a new trail', %Q{
 
     fill_in 'Email', with: user.email
     fill_in 'Password', with: user.password
-    click_button 'Log in'
+    click_button 'Log In'
     click_link 'Add New Trail'
 
-    expect(page).to have_content(user.username)
-    expect(page).to have_content('Trails Form Page')
+    expect(page).to have_content('Add New Trail')
     expect(page).to_not have_content('You need to log in first.')
   end
 
@@ -35,7 +34,7 @@ feature 'user adds a new trail', %Q{
 
     fill_in 'Email', with: user.email
     fill_in 'Password', with: user.password
-    click_button 'Log in'
+    click_button 'Log In'
     click_link 'Add New Trail'
 
 
