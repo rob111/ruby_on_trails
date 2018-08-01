@@ -69,7 +69,13 @@ describe('TrailShowContainerSpec', () => {
         expect(wrapper.find('h2').last().text()).toEqual('Reviews:')
         expect(wrapper.find('#review_username').text()).toEqual(`Username: ${user1.username}`)
         expect(wrapper.find('#review_rating').text()).toEqual(`Rating: ${reviews[0].rating}`)
+<<<<<<< Updated upstream
         expect(wrapper.find('.editReviewLink').text()).toEqual(`Edit Review`)
+=======
+<<<<<<< Updated upstream
+=======
+        expect(wrapper.find('.edit-review-link').text()).toEqual(`Edit Review`)
+>>>>>>> Stashed changes
 
         done()
       }, 0)
@@ -84,6 +90,10 @@ describe('TrailShowContainerSpec', () => {
         expect(wrapper.find('#upvoteContainer').text()).toEqual('Like')
         expect(wrapper.find('#voteCount').text()).toEqual(`Votes: ${reviews[0]["votes"]}`)
         expect(wrapper.find('.selected').text()).toEqual(`Like`)
+<<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 
         done()
       }, 0)

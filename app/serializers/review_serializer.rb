@@ -1,7 +1,6 @@
 class ReviewSerializer < ActiveModel::Serializer
   attributes :id, :rating, :comment, :user, :user_id, :votes
 
-  # belongs_to :trail
   has_many :likes
 
   def votes
