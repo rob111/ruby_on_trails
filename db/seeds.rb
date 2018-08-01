@@ -1,3 +1,5 @@
+require 'dotenv/load'
+
 # user1 = User.create!(email: 'hey@hey.com', password: 'password1', username: 'user1')
 # user2 = User.create!(email: 'hi@hi.com', password: 'password2', username: 'user2')
 # user3 = User.create!(email: 'no@no.com', password: 'password3', username: 'user3')
@@ -10,7 +12,7 @@
 #
 require 'httparty'
 
-url = 'https://www.hikingproject.com/data/get-trails?lat=42.3601&lon=-71.0589&key=200326518-5c9f618014e8a4c734920d8972aa9125'
+url = "https://www.hikingproject.com/data/get-trails?lat=42.3601&lon=-71.0589&key=#{ENV["HIKING_PROJECT_API_KEY"]}"
 response = HTTParty.get(url)
 parsed = response.parsed_response
 
