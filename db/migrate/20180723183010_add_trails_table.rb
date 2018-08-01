@@ -6,7 +6,7 @@ class AddTrailsTable < ActiveRecord::Migration[5.2]
       t.string :city, null: false
       t.string :state, null: false
       t.string :zip
-      t.string :start_latitutde
+      t.string :start_latitude
       t.string :start_longitude
       t.string :length, null: false
       t.integer :difficulty

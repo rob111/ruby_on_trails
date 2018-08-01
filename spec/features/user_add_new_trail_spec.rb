@@ -47,8 +47,11 @@ feature 'user adds a new trail', %Q{
     fill_in 'Start latitude', with: '1'
     fill_in 'Start longitude', with: '2'
     fill_in 'Length', with: '6'
-    fill_in 'Difficulty', with: '7'
-    fill_in 'Elevation', with: '80'
+    fill_in 'Difficulty', with: '5'
+    fill_in 'Description', with: '80'
+    fill_in 'Ascent', with: '8000'
+    fill_in 'Low elevation', with: '180'
+    fill_in 'High elevation', with: '880'
 
     click_button 'Add Trail'
 
