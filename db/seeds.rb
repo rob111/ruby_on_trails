@@ -34,6 +34,5 @@ parsed["trails"].each do |trail|
     difficulty = 5
   end
 
-  # binding.pry
   Trail.create!(name: trail["name"], description: trail["summary"], difficulty: difficulty, city: city, state: state, start_longitude: trail["longitude"], start_latitude: trail["latitude"], ascent: trail["ascent"], length: trail["length"], photo: trail["imgMedium"])
 end

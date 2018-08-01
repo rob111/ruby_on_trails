@@ -19,7 +19,6 @@ class Api::V1::TrailsController < ApplicationController
       user = User.find(review.user_id)
       usernames << user.username
     end
-    # binding.pry
     render json: {trail: trail, reviews: reviews, usernames: usernames, active_user_id: active_user_id, admin: admin}
   end
 end

@@ -23,7 +23,6 @@ class UserShow extends Component {
     })
     .then(response => response.json())
     .then(body => {
-      debugger
       this.setState({
         userName: body.username,
         email: body.email,

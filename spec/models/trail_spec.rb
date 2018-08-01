@@ -18,14 +18,6 @@ RSpec.describe Trail do
       end
     end
 
-    describe 'street' do
-      it 'must be present' do
-        expect(trail).to be_valid
-        trail.street = nil
-        expect(trail).to_not be_valid
-      end
-    end
-
     describe 'city' do
       it 'must be present' do
         expect(trail).to be_valid
