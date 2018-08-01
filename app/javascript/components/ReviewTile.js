@@ -7,7 +7,6 @@ const ReviewTile = props => {
 
     return (
       <div>
-       <br />
         <div className="panel-non-link">
           <div id="review_username">
             Username: {props.username}
@@ -19,11 +18,7 @@ const ReviewTile = props => {
             {Comment} {props.commentbody}
           </div>
         </div>
-        <br />
-        <div className="btn-and-link white-link">
-          {props.editReviewLink}
-        </div>
-        <br />
+        {props.editReviewLink}
       </div>
     )
   }

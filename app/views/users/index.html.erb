@@ -1,14 +1,11 @@
 <h2>Admin Section</h2>
 
 <% @users.each do |user| %>
-  <div class="panel-non-link">
-    <%= "Username: #{user.username}  | "%>
+  <div class="panel-non-link admin-edit">
+    <span class='bold'>Username: </span> <%= user.username %> |
 
-    <%= "Email: #{ user.email }"%>
+    <span class='bold'>Email: </span> <%= user.email %>
 
     <%= link_to "Edit", edit_user_path(user), id: user.id, class: 'btn-and-link' %>
   </div>
-
-
-  <br />
 <% end %>

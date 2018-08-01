@@ -64,18 +64,18 @@ class TrailShow extends Component {
     }
     let new_review_link = ''
     if (this.state.active_user_id) {
-      new_review_link = <div> <a href={`/trails/${this.props.params.id}/reviews/new`}><div className="btn-and-link white-link">Review This Trail</div></a></div>
+      new_review_link = <div><a href={`/trails/${this.props.params.id}/reviews/new`}><div className="btn-and-link white-link">Review This Trail</div></a></div>
     }
 
     let edit_trail_link = ''
     if (this.state.admin) {
-      edit_trail_link = <a className='btn-and-link white-link' href={`/trails/${this.props.params.id}/edit`}>Edit This Trail</a>
+      edit_trail_link = <div><a className='btn-and-link white-link' href={`/trails/${this.props.params.id}/edit`}>Edit This Trail</a></div>
     }
 
     let reviews = this.state.reviews.map((review, index) => {
       let editReviewLink = '';
       if (this.state.active_user_id === review.user_id || this.state.admin) {
-        editReviewLink = <a className='white-link' href={`/trails/${this.props.params.id}/reviews/${review.id}/edit`}>Edit Review</a>
+        editReviewLink = <div><a className='btn-and-link white-link' href={`/trails/${this.props.params.id}/reviews/${review.id}/edit`}>Edit Review</a></div>
       }
       return (
         <div>
@@ -96,20 +96,19 @@ class TrailShow extends Component {
         <div>
           <h2>{this.state.name}</h2>
           <div className='panel-non-link'>
-            <div id='street'>Street: {this.state.street}<br/></div>
-            <div id='city'>City: {this.state.city}<br/></div>
-            <div id='state'>State: {this.state.state}<br/></div>
-            <div id='zip'>Zip code: {this.state.zip}<br/></div>
-            <div id='start_lat'>Starting latitude: {this.state.start_latitutde}<br/></div>
-            <div id='start_lon'>Starting longitude: {this.state.start_longitude}<br/></div>
-            <div id='length'>Trail length: {this.state.length}<br/></div>
-            <div id='elevation'>Elevation: {this.state.elevation}<br/></div>
-            <div id='difficulty'>Difficulty rating: {this.state.difficulty}<br/></div>
+            <div id='street'>Street: {this.state.street}</div>
+            <div id='city'>City: {this.state.city}</div>
+            <div id='state'>State: {this.state.state}</div>
+            <div id='zip'>Zip code: {this.state.zip}</div>
+            <div id='start_lat'>Starting latitude: {this.state.start_latitutde}</div>
+            <div id='start_lon'>Starting longitude: {this.state.start_longitude}</div>
+            <div id='length'>Trail length: {this.state.length}</div>
+            <div id='elevation'>Elevation: {this.state.elevation}</div>
+            <div id='difficulty'>Difficulty rating: {this.state.difficulty}</div>
           </div>
         </div>
-        <br/>
-        {new_review_link}<br/><br />
-        <div>{edit_trail_link}</div>
+        {new_review_link}
+        {edit_trail_link}
         <div>
           <h2>{review_title}</h2>
           {reviews}

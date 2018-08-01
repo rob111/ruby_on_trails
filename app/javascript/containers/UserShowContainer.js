@@ -36,7 +36,7 @@ class UserShow extends Component {
     return (
       <div>
         <h2>{this.state.userName}</h2>
-        <div className="panel">
+        <div className="panel-non-link">
           <img src={this.state.profile_photo.url} />
           <div id='email'>Email: {this.state.email}</div>
         </div>

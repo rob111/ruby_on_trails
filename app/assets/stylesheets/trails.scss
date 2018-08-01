@@ -1,21 +1,25 @@
 * {
-  font-family: 'PT Serif', serif;
+  font-family: sans-serif;
 }
-// div.btn-and-link {
-//   color: white;
-// }
-label{
+
+label {
   font-size:1.2rem;
 }
-body {
-   font-size: 1.2rem;
-   background-color: #faf3dc;
+
+input {
+  text-align: center;
 }
+
+body {
+  font-size: 1.2rem;
+  background-color: #faf3dc;
+}
+
 h2 {
   font-weight: bold;
-   margin: 2.8rem;
-   font-size: 3rem;
-   font-family: 'PT Serif', serif;
+  margin: 2.8rem 0rem 1.8rem 0rem;
+  font-size: 3rem;
+  font-family: sans-serif;
 }
 
 a:hover{
@@ -25,6 +29,10 @@ a:hover{
 hr {
   background-color: #A9A9A9;
   border-color: #A9A9A9;
+}
+
+.btn-and-link:active {
+  transform: translateY(4px);
 }
 
 .btn-and-link:hover {
@@ -40,13 +48,14 @@ hr {
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+  margin: 15px;
 }
 
 .top-bar {
   background-color: #4a6741;
 }
 
-.white-link{
+.white-link {
   color: white;
 }
 
@@ -54,16 +63,31 @@ hr {
   background-color: #A9A9A9;
 }
 
-.panel{
-  background-color: #F2F2F2;
-  border: 3px solid #4a6741;
+.panel:active {
+  transform: translateY(4px);
 }
 
 .panel-non-link {
   background-color: #F2F2F2;
   border: 3px solid #4a6741;
+  padding: 15px 32px;
+  margin-bottom: 15px;
 }
 
-// :not (h2){
-//   font-size: 16px;
-// }
+.panel {
+  background-color: #F2F2F2;
+  border: 3px solid #4a6741;
+}
+
+.admin-edit {
+  margin-bottom: 0.5rem
+}
+
+.bold {
+  font-weight: bold;
+  font-family: sans-serif;
+}
+
+#center {
+  align-content: center;
+}
