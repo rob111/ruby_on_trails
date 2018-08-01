@@ -6,7 +6,7 @@ class VoteButton extends Component {
     this.state = {
       liked: null,
       like_id: null,
-      count: 0
+      count: props.voteCount
     }
     this.recordLikes = this.recordLikes.bind(this)
     this.selectedVote = this.selectedVote.bind(this)
@@ -14,18 +14,12 @@ class VoteButton extends Component {
 
   componentDidMount(){
     if (this.props.likes.length > 0) {
-      let vote_count = 0
       this.props.likes.forEach(voteRecord => {
-        if (voteRecord.vote == "like") {
-          vote_count += 1
-        } else if (voteRecord.vote == "dislike") {
-          vote_count -= 1
-        }
         if (voteRecord.user_id == this.props.currentUser) {
           this.setState({liked: voteRecord.vote, like_id: voteRecord.id})
         }
       })
-      this.setState({count: vote_count})
+
     }
   }
 
@@ -62,7 +56,7 @@ class VoteButton extends Component {
   }
 
   selectedVote(id){
-
+    // debugger
     if (this.state.liked == 'like' && id == 'upvoteContainer') {
       return 'selected';
     } else if(this.state.liked == 'dislike' && id == 'downvoteContainer'){
@@ -71,7 +65,7 @@ class VoteButton extends Component {
   }
 
   render(){
-    let showVoterButtons
+    let showVoterButtons;
     if(this.props.currentUser){
       showVoterButtons =
       <div>

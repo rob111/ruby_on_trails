@@ -1,7 +1,7 @@
 class LikesController < ApplicationController
 
 
-  def create
+  def creates
     @review = Review.find(params[:review_id])
     @like = Like.create(user_id: current_user.id, review: @review)
     @review.like.to_i =  1

@@ -3,9 +3,9 @@ class Api::V1::LikesController < ApplicationController
 
   def like_save(liked_record, params)
     if liked_record.save
-      votes = Like.where(review_id: params[:reviewId])
-      vote_count = liked_record.votes_count(votes)
-      render json: { like: liked_record, votes: vote_count }
+      review = Review.find(params[:reviewId])
+      votes = review.votes_count
+      render json: { like: liked_record, votes: votes }
     else
       render json: { error: liked_record.errors.full_messages }, status: :unprocessable_entity
     end

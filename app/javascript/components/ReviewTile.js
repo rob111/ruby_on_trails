@@ -5,7 +5,7 @@ const ReviewTile = props => {
   if (props.commentbody) {
     Comment = "Comment:"
   }
-
+  
     return (
       <div>
         <div id="review_username">
@@ -25,6 +25,7 @@ const ReviewTile = props => {
             likes={props.likes}
             currentUser={props.currentUser}
             reviewId={props.id}
+            voteCount={props.voteCount}
             />
         </div>
         <hr />

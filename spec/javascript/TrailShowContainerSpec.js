@@ -8,10 +8,7 @@ describe('TrailShowContainerSpec', () => {
   let trail;
   let user1;
   let reviews;
-  let usernames;
-  let active_user_id;
-  let likes;
-  let admin;
+  let current_user;
 
   beforeEach(() => {
     user1 = { email: 'user1@test.com', password: '000000', username: 'ben', id: 1},
@@ -21,7 +18,7 @@ describe('TrailShowContainerSpec', () => {
         city: 'Waltham',
         state: 'MA',
         zip: 12345,
-        start_latitutde: 1,
+        start_latitude: 1,
         start_longitude: 2,
         length: 6,
         difficulty: 7,
@@ -29,33 +26,30 @@ describe('TrailShowContainerSpec', () => {
         user: user1,
         id: 1
     },
-    likes = [
-      [{created_at: "2018-07-31T13:30:34.211Z",
-      id: 157,
-      review_id: 1,
-      updated_at: "2018-07-31T14:33:40.665Z",
-      user_id: 1,
-      vote: "like"}]
-    ],
-    active_user_id = 1,
-    admin = false,
-    reviews = [
+  reviews = [
       {
         comment: 'This is a review.',
         rating: 4,
+        user: user1.username,
         user_id: user1.id,
-        trail_id: trail.id,
-        id: 1
+        votes: 7,
+        id: 1,
+        likes: [
+          {id: 157,
+          user_id: 1,
+          vote: "like"}
+        ],
       }
     ],
-    usernames = [
-      user1.username
-    ]
+    current_user = {
+      id: user1.id,
+      admin: false
+    }
 
     fetchMock.get(`/api/v1/trails/${trail.id}`, {
       credentials: 'same-origin',
       status: 200,
-      body: {trail: trail, reviews: reviews, usernames: usernames, active_user_id: active_user_id, admin: admin, likes: likes}
+      body: {trail: trail, reviews: reviews, current_user: current_user}
     })
     wrapper = mount(<TrailShowContainer params={{id: trail.id}} />)
   });
@@ -88,7 +82,7 @@ describe('TrailShowContainerSpec', () => {
     it('renders expected vote buttons and associated likes returned from api call', (done) => {
       setTimeout(() => {
         expect(wrapper.find('#upvoteContainer').text()).toEqual('Like')
-        expect(wrapper.find('#voteCount').text()).toEqual(`Votes: 1`)
+        expect(wrapper.find('#voteCount').text()).toEqual(`Votes: ${reviews[0]["votes"]}`)
         expect(wrapper.find('.selected').text()).toEqual(`Like`)
 
         done()
