@@ -28,10 +28,10 @@
     <%= f.label :elevation %>
     <%= f.text_field :elevation %>
 
-    <%= f.submit 'Edit Trail' %>
+    <%= f.submit 'Edit Trail', class: "btn-and-link" %>
   <% end %>
 
-  <%= link_to 'Delete This Trail', trail_path(@trail),
+  <%= link_to 'Delete This Trail', class:"btn-and-link white-link", trail_path(@trail),
     method: :delete,
     data: { confirm: 'Are you sure?' } %>
 <% else %>

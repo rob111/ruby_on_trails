@@ -1,3 +1,5 @@
+<h2>Edit User</h2>
+
 <%= form_for(@user) do |f| %>
   <div class="field">
     <%= f.label :username %><br />
@@ -10,7 +12,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Update User', class: 'btn-and-link' %>
   </div>
 <% end %>
 
@@ -22,7 +24,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit  'Upload Photo'%>
+    <%= f.submit  'Upload Photo', class: 'btn-and-link' %>
   </div>
 <% end %>
 
@@ -36,6 +38,6 @@
   </div>
 
   <div class="actions">
-    <%= f.submit 'Update Password' %>
+    <%= f.submit 'Update Password', {class: 'btn-and-link'}  %>
   </div>
 <% end %>

@@ -1,7 +1,7 @@
-# user1 = User.create!(email: 'hey@hey.com', password: 'password1', username: 'user1')
-# user2 = User.create!(email: 'hi@hi.com', password: 'password2', username: 'user2')
-# user3 = User.create!(email: 'no@no.com', password: 'password3', username: 'user3')
-# user4 = User.create!(username: "ADMIN", email: 'admin@gmail.com', password: '111111', role: 'admin')
+user1 = User.create!(email: 'hey@hey.com', password: 'password1', username: 'user1')
+user2 = User.create!(email: 'hi@hi.com', password: 'password2', username: 'user2')
+user3 = User.create!(email: 'no@no.com', password: 'password3', username: 'user3')
+user4 = User.create!(username: "ADMIN", email: 'admin@gmail.com', password: '111111', role: 'admin')
 
 
 trail1 = Trail.create!(name: 'First Trail', street: '123 Maple St.', city: 'Boston', state: 'MA', zip: '12345', start_latitude: '1', start_longitude: '2', length: '6', difficulty: '7', elevation: '80')

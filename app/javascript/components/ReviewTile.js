@@ -7,19 +7,23 @@ const ReviewTile = props => {
 
     return (
       <div>
-        <div id="review_username">
-          Username: {props.username}
+       <br />
+        <div className="panel-non-link">
+          <div id="review_username">
+            Username: {props.username}
+          </div>
+          <div id="review_rating">
+            Rating: {props.rating}
+          </div>
+          <div id="review_comment">
+            {Comment} {props.commentbody}
+          </div>
         </div>
-        <div id="review_rating">
-          Rating: {props.rating}
-        </div>
-        <div id="review_comment">
-          {Comment} {props.commentbody}
-        </div>
-        <div>
+        <br />
+        <div className="btn-and-link white-link">
           {props.editReviewLink}
         </div>
-        <hr />
+        <br />
       </div>
     )
   }

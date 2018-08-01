@@ -5,8 +5,7 @@
     <% end %>
   <% end %>
 
-  <h2>Trails Form Page</h2>
-  <%= @user.username %>
+  <h2>Add New Trail</h2>
   <%= form_for @trail do |f| %>
     <%= f.label :name %>
     <%= f.text_field :name %>
@@ -29,8 +28,9 @@
     <%= f.label :elevation %>
     <%= f.text_field :elevation %>
 
-    <%= f.submit 'Add Trail' %>
+    <%= f.submit 'Add Trail', {class: 'btn-and-link'} %>
   <% end %>
 <% else %>
   <% flash.now[:warning] = "You need to log in first." %>
 <% end %>
+<br/>

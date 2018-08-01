@@ -18,7 +18,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :profile_photo%> <br />
+    <%= f.label :profile_photo, 'Profile Photo'%> <br />
     <%= f.file_field :profile_photo %>
   </div>
 
@@ -32,22 +32,21 @@
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <%= f.label :password_confirmation, 'Password Confirmation' %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
   <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.label :current_password, 'Current Password' %> <i>(we need your current password to confirm your changes)</i><br />
     <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Update" %>
+    <%= f.submit "Update", class: 'btn-and-link'  %>
   </div>
 <% end %>
+<br />
 
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+<%= link_to "Back", :back, class:'btn-and-link' %>
+<div style="margin-top:10000px;  padding-bottom:-12px; text-align: right; fixed: right">
+<%= button_to "Cancel My Account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></div>

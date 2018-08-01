@@ -35,10 +35,12 @@ class UserShow extends Component {
   render() {
     return (
       <div>
-        <img src={this.state.profile_photo.url} />
         <h2>{this.state.userName}</h2>
-        <div id='email'>Email: {this.state.email}</div>
-        <a href='/users/edit'>Edit Your Profile</a>
+        <div className="panel">
+          <img src={this.state.profile_photo.url} />
+          <div id='email'>Email: {this.state.email}</div>
+        </div>
+        <a className="btn-and-link white-link" href='/users/edit'>Edit Your Profile</a>
       </div>
     )
   }

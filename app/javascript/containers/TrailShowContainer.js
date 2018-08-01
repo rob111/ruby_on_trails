@@ -60,22 +60,22 @@ class TrailShow extends Component {
   render() {
     let review_title = null
     if (this.state.reviews.length > 0) {
-      review_title = "Reviews:"
+      review_title = "Reviews"
     }
     let new_review_link = ''
     if (this.state.active_user_id) {
-      new_review_link = <a href={`/trails/${this.props.params.id}/reviews/new`}>Review This Trail</a>
+      new_review_link = <div> <a href={`/trails/${this.props.params.id}/reviews/new`}><div className="btn-and-link white-link">Review This Trail</div></a></div>
     }
 
     let edit_trail_link = ''
     if (this.state.admin) {
-      edit_trail_link = <a href={`/trails/${this.props.params.id}/edit`}>Edit This Trail</a>
+      edit_trail_link = <a className='btn-and-link white-link' href={`/trails/${this.props.params.id}/edit`}>Edit This Trail</a>
     }
 
     let reviews = this.state.reviews.map((review, index) => {
       let editReviewLink = '';
       if (this.state.active_user_id === review.user_id || this.state.admin) {
-        editReviewLink = <a href={`/trails/${this.props.params.id}/reviews/${review.id}/edit`}>Edit Review</a>
+        editReviewLink = <a className='white-link' href={`/trails/${this.props.params.id}/reviews/${review.id}/edit`}>Edit Review</a>
       }
       return (
         <div>
@@ -95,18 +95,20 @@ class TrailShow extends Component {
       <div>
         <div>
           <h2>{this.state.name}</h2>
-          <div id='street'>Street: {this.state.street}<br/></div>
-          <div id='city'>City: {this.state.city}<br/></div>
-          <div id='state'>State: {this.state.state}<br/></div>
-          <div id='zip'>Zip code: {this.state.zip}<br/></div>
-          <div id='start_lat'>Starting latitude: {this.state.start_latitutde}<br/></div>
-          <div id='start_lon'>Starting longitude: {this.state.start_longitude}<br/></div>
-          <div id='length'>Trail length: {this.state.length}<br/></div>
-          <div id='elevation'>Elevation: {this.state.elevation}<br/></div>
-          <div id='difficulty'>Difficulty rating: {this.state.difficulty}<br/></div>
+          <div className='panel-non-link'>
+            <div id='street'>Street: {this.state.street}<br/></div>
+            <div id='city'>City: {this.state.city}<br/></div>
+            <div id='state'>State: {this.state.state}<br/></div>
+            <div id='zip'>Zip code: {this.state.zip}<br/></div>
+            <div id='start_lat'>Starting latitude: {this.state.start_latitutde}<br/></div>
+            <div id='start_lon'>Starting longitude: {this.state.start_longitude}<br/></div>
+            <div id='length'>Trail length: {this.state.length}<br/></div>
+            <div id='elevation'>Elevation: {this.state.elevation}<br/></div>
+            <div id='difficulty'>Difficulty rating: {this.state.difficulty}<br/></div>
+          </div>
         </div>
         <br/>
-        <div>{new_review_link}</div>
+        {new_review_link}<br/><br />
         <div>{edit_trail_link}</div>
         <div>
           <h2>{review_title}</h2>

@@ -51,6 +51,7 @@ class TrailsIndexContainer extends Component {
         />
       )
     })
+
     return (
       <div>
         <h2>Trails</h2>

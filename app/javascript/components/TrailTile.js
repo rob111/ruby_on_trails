@@ -5,15 +5,11 @@ class TrailTile extends Component {
 
   render() {
     return (
-      <div>
-        <ul>
-          <li>
-            <Link to={`/trails/${this.props.id}`}>
-              {this.props.name}
-            </Link>
-          </li>
-        </ul>
-      </div>
+      <Link to={`/trails/${this.props.id}`}>
+        <div className="panel">
+            {this.props.name}
+        </div>
+      </Link>
     )
   }
 
