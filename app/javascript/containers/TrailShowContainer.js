@@ -115,7 +115,6 @@ class TrailShow extends Component {
           <h2>{review_title}</h2>
           {reviews}
         </div>
-
       </div>
     )
   }
