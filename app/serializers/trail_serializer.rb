@@ -6,5 +6,4 @@ class TrailSerializer < ActiveModel::Serializer
   def reviews
     object.reviews
   end
-
 end

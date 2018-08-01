@@ -6,30 +6,30 @@ const ReviewTile = props => {
     Comment = "Comment:"
   }
 
-    return (
+  return (
+    <div>
+      <div id="review_username">
+        Username: {props.username}
+      </div>
+      <div id="review_rating">
+        Rating: {props.rating}
+      </div>
+      <div id="review_comment">
+        {Comment} {props.commentbody}
+      </div>
+      <div className="edit-review-link">
+        {props.editReviewLink}
+      </div>
       <div>
-        <div id="review_username">
-          Username: {props.username}
-        </div>
-        <div id="review_rating">
-          Rating: {props.rating}
-        </div>
-        <div id="review_comment">
-          {Comment} {props.commentbody}
-        </div>
-        <div className="editReviewLink">
-          {props.editReviewLink}
-        </div>
-        <div>
-          <VoteButton
-            likes={props.likes}
-            currentUser={props.currentUser}
-            reviewId={props.id}
-            voteCount={props.voteCount}
-            />
-        </div>
-        <hr />
-=======
+        <VoteButton
+          likes={props.likes}
+          currentUser={props.currentUser}
+          reviewId={props.id}
+          voteCount={props.voteCount}
+          />
+    </div>
+    <hr />
+
   return (
     <div>
       <div id="review_username">

@@ -18,5 +18,4 @@ class ReviewSerializer < ActiveModel::Serializer
   def likes
     object.likes
   end
-
 end

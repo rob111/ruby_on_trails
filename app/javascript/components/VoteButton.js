@@ -56,7 +56,6 @@ class VoteButton extends Component {
   }
 
   selectedVote(id){
-    // debugger
     if (this.state.liked == 'like' && id == 'upvoteContainer') {
       return 'selected';
     } else if(this.state.liked == 'dislike' && id == 'downvoteContainer'){
@@ -81,10 +80,10 @@ class VoteButton extends Component {
     }
     return (
       <div>
-          {showVoterButtons}
-        <div id="voteCount">
-          Votes: {this.state.count}
-        </div>
+        {showVoterButtons}
+      <div id="voteCount">
+        Votes: {this.state.count}
+      </div>
     </div>
     );
   }

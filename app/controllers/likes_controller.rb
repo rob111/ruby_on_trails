@@ -8,9 +8,8 @@ class LikesController < ApplicationController
       flash[:notice] = "You liked this review"
       redirect_to @trail
     else
-      flash.now[:warning] = "like wasn't added"
+      flash.now[:warning] = "Like wasn't added"
       redirect_to @trail
     end
   end
-
 end
