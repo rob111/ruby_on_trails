@@ -16,7 +16,6 @@ class TrailTile extends Component {
       </div>
     )
   }
-
 }
 
 export default TrailTile;

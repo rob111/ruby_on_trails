@@ -15,9 +15,11 @@ class TrailShow extends Component {
       start_longitude: '',
       length: '',
       difficulty: '',
-      elevation: '',
       active_user_id: null,
       reviews: [],
+      usernames: [],
+      ascent: '',
+      photo: '',
       admin: null
     }
   }
@@ -47,16 +49,30 @@ class TrailShow extends Component {
         start_longitude: body.trail.start_longitude,
         length: body.trail.length,
         difficulty: body.trail.difficulty,
-        elevation: body.trail.elevation,
-        active_user_id: body.current_user.id,
-        admin: body.current_user.admin,
-        reviews: body.reviews
+        ascent: body.trail.ascent,
+        active_user_id: body.active_user_id,
+        admin: body.admin,
+        reviews: body.reviews,
+        photo: body.trail.photo,
+        usernames: body.usernames
       })
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
   render() {
+    let trailPhoto;
+    if (this.state.photo != '' && this.state.photo != null ) {
+      trailPhoto = <img src={this.state.photo}/>
+    }
+    let streetShow;
+    if (this.state.street != '' && this.state.street != null) {
+      streetShow = <div id='street'>Street: {this.state.street}</div>
+    }
+    let zipShow;
+    if (this.state.zip != '' && this.state.zip != null) {
+      zipShow = <div id='zip'>Zipcode: {this.state.zip}</div>
+    }
     let review_title = null
     if (this.state.reviews.length > 0) {
       review_title = "Reviews:"
@@ -98,14 +114,15 @@ class TrailShow extends Component {
       <div>
         <div>
           <h2>{this.state.name}</h2>
-          <div id='street'>Street: {this.state.street}<br/></div>
+          {trailPhoto}
+          {streetShow}
           <div id='city'>City: {this.state.city}<br/></div>
           <div id='state'>State: {this.state.state}<br/></div>
-          <div id='zip'>Zip code: {this.state.zip}<br/></div>
+          {zipShow}
           <div id='start_lat'>Starting latitude: {this.state.start_latitude}<br/></div>
           <div id='start_lon'>Starting longitude: {this.state.start_longitude}<br/></div>
-          <div id='length'>Trail length: {this.state.length}<br/></div>
-          <div id='elevation'>Elevation: {this.state.elevation}<br/></div>
+          <div id='length'>Trail length: {this.state.length} miles<br/></div>
+          <div id='ascent'>Ascent: {this.state.ascent}ft<br/></div>
           <div id='difficulty'>Difficulty rating: {this.state.difficulty}<br/></div>
         </div>
         <br/>
