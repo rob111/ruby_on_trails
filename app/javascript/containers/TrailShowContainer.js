@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import ReviewTile from '../components/ReviewTile'
 
+
 class TrailShow extends Component {
   constructor(props) {
     super(props)
@@ -10,14 +11,13 @@ class TrailShow extends Component {
       city: '',
       state: '',
       zip: '',
-      start_latitutde: '',
+      start_latitude: '',
       start_longitude: '',
       length: '',
       difficulty: '',
       elevation: '',
       active_user_id: null,
       reviews: [],
-      usernames: [],
       admin: null
     }
   }
@@ -43,15 +43,14 @@ class TrailShow extends Component {
         city: body.trail.city,
         state: body.trail.state,
         zip: body.trail.zip,
-        start_latitutde: body.trail.start_latitutde,
+        start_latitude: body.trail.start_latitude,
         start_longitude: body.trail.start_longitude,
         length: body.trail.length,
         difficulty: body.trail.difficulty,
         elevation: body.trail.elevation,
-        active_user_id: body.active_user_id,
-        admin: body.admin,
-        reviews: body.reviews,
-        usernames: body.usernames
+        active_user_id: body.current_user.id,
+        admin: body.current_user.admin,
+        reviews: body.reviews
       })
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
@@ -77,20 +76,24 @@ class TrailShow extends Component {
       if (this.state.active_user_id === review.user_id || this.state.admin) {
         editReviewLink = <div><a className='btn-and-link white-link' href={`/trails/${this.props.params.id}/reviews/${review.id}/edit`}>Edit Review</a></div>
       }
+
       return (
         <div>
           <ReviewTile
             key={review.id}
             id={review.id}
-            username={this.state.usernames[index]}
+            username={review.user}
+            likes={review.likes}
             rating={review.rating}
             commentbody={review.comment}
             editReviewLink={editReviewLink}
+            currentUser={this.state.active_user_id}
+            voteCount={review.votes}
+
           />
         </div>
       )
     }, this)
-
     return (
       <div>
         <div>
@@ -113,6 +116,7 @@ class TrailShow extends Component {
           <h2>{review_title}</h2>
           {reviews}
         </div>
+
       </div>
     )
   }

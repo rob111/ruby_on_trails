@@ -18,7 +18,7 @@ describe('TrailsIndexContainerSpec', () => {
         city: 'Waltham',
         state: 'MA',
         zip: '12345',
-        start_latitutde: '1',
+        start_latitude: '1',
         start_longitude: '2',
         length: '6 miles',
         difficulty: '7',
