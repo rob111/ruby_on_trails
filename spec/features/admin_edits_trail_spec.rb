@@ -14,7 +14,7 @@ feature 'admin edits trail info', %Q{
     fill_in 'Email', with: admin.email
     fill_in 'Password', with: admin.password
 
-    click_button 'Log in'
+    click_button 'Log In'
 
     expect(page).to have_content('Signed in successfully.')
     expect(page).to have_content('Sign Out')

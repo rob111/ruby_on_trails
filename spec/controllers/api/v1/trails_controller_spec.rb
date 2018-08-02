@@ -34,14 +34,14 @@ RSpec.describe Api::V1::TrailsController, type: :controller do
       expect(response.status).to eq 200
       expect(response.content_type).to eq("application/json")
 
-      expect(returned_json.length).to eq 5
+      expect(returned_json.length).to eq 3
       expect(returned_json["trail"]["name"]).to eq "Happy Trail"
       expect(returned_json["trail"]["difficulty"]).to eq 5
       expect(returned_json["trail"]["created_by"]).to eq user.id
       expect(returned_json["reviews"].length).to eq 1
       expect(returned_json["reviews"][0]["comment"]).to eq 'YO THIS TRAIL IS GREAT!'
-      expect(returned_json["usernames"][0]).to eq 'Steve'
-      expect(returned_json["admin"]).to eq false
+      expect(returned_json["current_user"]["id"]).to eq nil
+      expect(returned_json["current_user"]["admin"]).to eq false
 
     end
   end

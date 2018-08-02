@@ -13,7 +13,7 @@ feature 'admin edit user info', %Q{
 
     fill_in 'Email', with: admin.email
     fill_in 'Password', with: admin.password
-    click_button 'Log in'
+    click_button 'Log In'
     click_link 'Admin Section'
 
     expect(page).to have_content(admin.username)
