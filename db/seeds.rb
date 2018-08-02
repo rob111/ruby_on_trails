@@ -23,5 +23,5 @@ parsed["trails"].each do |trail|
     difficulty = 5
   end
 
-  Trail.create!(name: trail["name"], description: trail["summary"], difficulty: difficulty, city: city, state: state, start_longitude: trail["longitude"], start_latitude: trail["latitude"], ascent: trail["ascent"], length: trail["length"], photo: trail["imgMedium"])
+  Trail.create!(name: trail["name"], description: trail["summary"], difficulty: difficulty, city: city, state: state, start_longitude: trail["longitude"], start_latitude: trail["latitude"], ascent: trail["ascent"], length: trail["length"], photo: trail["imgMedium"], low_elevation: trail["low"], high_elevation: trail["high"])
 end
