@@ -43,7 +43,7 @@ class UserShow extends Component {
           <div id='email'>Email: {this.state.email}</div>
           <div id='user-review-count'>Reviews Submitted: {this.state.reviewCount}</div>
         </div>
-        <a className="btn-and-link white-link" href='/users/edit'>Edit Your Profile</a>
+        <a className="btn-and-link white-link" href='/users/edit'>Edit Profile</a>
       </div>
     )
   }
