@@ -67,18 +67,22 @@ class TrailShow extends Component {
     if (this.state.photo != '' && this.state.photo != null ) {
       trailPhoto = <img src={this.state.photo}/>
     }
+      
     let streetShow;
     if (this.state.street != '' && this.state.street != null) {
       streetShow = <div id='street'>Street: {this.state.street}</div>
     }
+      
     let zipShow;
     if (this.state.zip != '' && this.state.zip != null) {
       zipShow = <div id='zip'>Zipcode: {this.state.zip}</div>
     }
+      
     let review_title = null
     if (this.state.reviews.length > 0) {
       review_title = <h2>Reviews</h2>
     }
+      
     let new_review_link = ''
     if (this.state.active_user_id) {
       new_review_link = <div><a href={`/trails/${this.props.params.id}/reviews/new`}><div className="btn-and-link white-link">Review This Trail</div></a></div>
