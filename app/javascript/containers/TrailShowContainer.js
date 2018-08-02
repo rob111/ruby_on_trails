@@ -92,7 +92,7 @@ class TrailShow extends Component {
     let reviews = this.state.reviews.map((review, index) => {
       let editReviewLink = '';
       if (this.state.active_user_id === review.user_id || this.state.admin) {
-        editReviewLink = <div><a className='btn-and-link white-link' href={`/trails/${this.props.params.id}/reviews/${review.id}/edit`}>Edit Review</a></div>
+        editReviewLink = <div><a className='btn-and-link white-link' id='edit-review-link' href={`/trails/${this.props.params.id}/reviews/${review.id}/edit`}>Edit Review</a></div>
       }
 
       return (

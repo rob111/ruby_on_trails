@@ -29,8 +29,7 @@ const ReviewTile = props => {
           {props.editReviewLink}
         </div>
       </div>
-    <hr/>
-    </div>
+
 
   )
 }

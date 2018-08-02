@@ -69,7 +69,7 @@ describe('TrailShowContainerSpec', () => {
         expect(wrapper.find('h2').last().text()).toEqual('Reviews')
         expect(wrapper.find('#review_username').text()).toEqual(`Username: ${user1.username}`)
         expect(wrapper.find('#review_rating').text()).toEqual(`Rating: ${reviews[0].rating}`)
-        expect(wrapper.find('.edit_review_link').text()).toEqual(`Edit Review`)
+        expect(wrapper.find('#edit-review-link').text()).toEqual(`Edit Review`)
 
         done()
       }, 0)
