@@ -17,7 +17,6 @@ class TrailShow extends Component {
       difficulty: '',
       active_user_id: null,
       reviews: [],
-      usernames: [],
       ascent: '',
       photo: '',
       admin: null
@@ -50,11 +49,10 @@ class TrailShow extends Component {
         length: body.trail.length,
         difficulty: body.trail.difficulty,
         ascent: body.trail.ascent,
-        active_user_id: body.active_user_id,
-        admin: body.admin,
+        active_user_id: body.current_user.id,
+        admin: body.current_user.admin,
         reviews: body.reviews,
-        photo: body.trail.photo,
-        usernames: body.usernames
+        photo: body.trail.photo
       })
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
