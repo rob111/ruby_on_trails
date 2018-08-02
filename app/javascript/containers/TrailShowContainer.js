@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import ReviewTile from '../components/ReviewTile'
 
+
 class TrailShow extends Component {
   constructor(props) {
     super(props)
@@ -16,9 +17,12 @@ class TrailShow extends Component {
       difficulty: '',
       active_user_id: null,
       reviews: [],
+<<<<<<< HEAD
       usernames: [],
       ascent: '',
       photo: '',
+=======
+>>>>>>> 6efb72222f40eda7d32be650ea326eeefd830cc5
       admin: null
     }
   }
@@ -48,12 +52,19 @@ class TrailShow extends Component {
         start_longitude: body.trail.start_longitude,
         length: body.trail.length,
         difficulty: body.trail.difficulty,
+<<<<<<< HEAD
         ascent: body.trail.ascent,
         active_user_id: body.active_user_id,
         admin: body.admin,
         reviews: body.reviews,
         photo: body.trail.photo,
         usernames: body.usernames
+=======
+        elevation: body.trail.elevation,
+        active_user_id: body.current_user.id,
+        admin: body.current_user.admin,
+        reviews: body.reviews
+>>>>>>> 6efb72222f40eda7d32be650ea326eeefd830cc5
       })
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
@@ -91,20 +102,24 @@ class TrailShow extends Component {
       if (this.state.active_user_id === review.user_id || this.state.admin) {
         editReviewLink = <a href={`/trails/${this.props.params.id}/reviews/${review.id}/edit`}>Edit Review</a>
       }
+
       return (
         <div>
           <ReviewTile
             key={review.id}
             id={review.id}
-            username={this.state.usernames[index]}
+            username={review.user}
+            likes={review.likes}
             rating={review.rating}
             commentbody={review.comment}
             editReviewLink={editReviewLink}
+            currentUser={this.state.active_user_id}
+            voteCount={review.votes}
+
           />
         </div>
       )
     }, this)
-
     return (
       <div>
         <div>
@@ -113,7 +128,11 @@ class TrailShow extends Component {
           {streetShow}
           <div id='city'>City: {this.state.city}<br/></div>
           <div id='state'>State: {this.state.state}<br/></div>
+<<<<<<< HEAD
           {zipShow}
+=======
+          <div id='zip'>Zip code: {this.state.zip}<br/></div>
+>>>>>>> 6efb72222f40eda7d32be650ea326eeefd830cc5
           <div id='start_lat'>Starting latitude: {this.state.start_latitude}<br/></div>
           <div id='start_lon'>Starting longitude: {this.state.start_longitude}<br/></div>
           <div id='length'>Trail length: {this.state.length} miles<br/></div>
