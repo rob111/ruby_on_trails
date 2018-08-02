@@ -24,8 +24,6 @@ class VoteButton extends Component {
   }
 
   recordLikes(event) {
-    event.preventDefault();
-
     let formPayload = {
       like_id: this.state.like_id,
       liked: this.state.liked,
@@ -56,9 +54,7 @@ class VoteButton extends Component {
   }
 
   selectedVote(id){
-    if (this.state.liked == 'like' && id == 'upvoteContainer') {
-      return 'selected';
-    } else if(this.state.liked == 'dislike' && id == 'downvoteContainer'){
+    if ((this.state.liked == 'like' && id == 'upvoteContainer') || (this.state.liked == 'dislike' && id == 'downvoteContainer')) {
       return 'selected';
     }
   }

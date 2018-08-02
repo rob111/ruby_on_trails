@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import ReviewTile from '../components/ReviewTile'
 
-
 class TrailShow extends Component {
   constructor(props) {
     super(props)

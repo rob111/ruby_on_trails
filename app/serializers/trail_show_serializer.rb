@@ -3,7 +3,4 @@ class TrailShowSerializer < ActiveModel::Serializer
 
   has_many :reviews
 
-  def reviews
-    object.reviews
-  end
 end

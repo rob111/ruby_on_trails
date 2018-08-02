@@ -7,8 +7,7 @@ class Review < ApplicationRecord
   has_many :likes
   has_many :users, through: :likes
 
-
-    def votes_count
+    def vote_count
       vote_count = 0
       likes.each do |like|
         if like.vote == "like"

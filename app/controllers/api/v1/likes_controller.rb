@@ -1,10 +1,20 @@
 class Api::V1::LikesController < ApplicationController
   protect_from_forgery unless: -> { request.format.json? }
 
+  def create
+    if params[:button] == 'Like'
+       set_vote(params)
+    elsif params[:button] == 'Dislike'
+      set_vote(params)
+    end
+  end
+
+  private
+
   def like_save(liked_record, params)
     if liked_record.save
       review = Review.find(params[:reviewId])
-      votes = review.votes_count
+      votes = review.vote_count
       render json: { like: liked_record, votes: votes }
     else
       render json: { error: liked_record.errors.full_messages }, status: :unprocessable_entity
@@ -24,15 +34,6 @@ class Api::V1::LikesController < ApplicationController
       liked_record = Like.new(user_id: params[:currentUser], review_id: params[:reviewId], vote: params[:button].downcase)
       like_save(liked_record, params)
     end
-  end
-
-  def create
-    if params[:button] == 'Like'
-       set_vote(params)
-    elsif params[:button] == 'Dislike'
-      set_vote(params)
-    end
-
   end
 
 end
