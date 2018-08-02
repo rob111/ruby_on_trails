@@ -17,12 +17,12 @@ describe('TrailShowContainerSpec', () => {
         street: '777 Washington St.',
         city: 'Waltham',
         state: 'MA',
-        zip: '12345',
-        start_latitude: '1',
-        start_longitude: '2',
-        length: '6 miles',
-        difficulty: '7',
-        elevation: '80',
+        zip: 12345,
+        start_latitude: 1,
+        start_longitude: 2,
+        length: 6,
+        difficulty: 7,
+        elevation: 80,
         user: user1,
         id: 1
     },
@@ -69,6 +69,7 @@ describe('TrailShowContainerSpec', () => {
         expect(wrapper.find('h2').last().text()).toEqual('Reviews')
         expect(wrapper.find('#review_username').text()).toEqual(`Username: ${user1.username}`)
         expect(wrapper.find('#review_rating').text()).toEqual(`Rating: ${reviews[0].rating}`)
+        expect(wrapper.find('.edit_review_link').text()).toEqual(`Edit Review`)
 
         done()
       }, 0)
