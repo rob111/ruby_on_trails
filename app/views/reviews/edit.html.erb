@@ -1,4 +1,4 @@
-<h1>Edit review page</h1>
+<h2>Edit This Review</h2>
 
 <%= form_for [@trail, @review] do |f| %>
   <%= f.label :rating %>
@@ -6,9 +6,9 @@
   <%= f.label :comment %>
   <%= f.text_area :comment %>
 
-  <%= f.submit 'Edit Review' %>
+  <%= f.submit 'Edit Review', class: 'btn-and-link' %>
 <% end %>
 
 
 <%= button_to "Delete Review", {:controller => :reviews,
-      :action => 'destroy', :id => @review.id }, :method => :delete %>
+      :action => 'destroy', :id => @review.id }, class: 'btn-and-link', :method => :delete %>

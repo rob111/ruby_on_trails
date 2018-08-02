@@ -13,7 +13,7 @@ feature 'user edits their own review', %Q{
 
     fill_in 'Email', with: testuser.email
     fill_in 'Password', with: testuser.password
-    click_button 'Log in'
+    click_button 'Log In'
 
     visit new_trail_review_path(trail.id)
     fill_in 'Rating', with: 1
@@ -38,7 +38,7 @@ feature 'user edits their own review', %Q{
 
     fill_in 'Email', with: testuser.email
     fill_in 'Password', with: testuser.password
-    click_button 'Log in'
+    click_button 'Log In'
 
     visit new_trail_review_path(trail.id)
 
@@ -54,7 +54,7 @@ feature 'user edits their own review', %Q{
 
     fill_in 'Email', with: user.email
     fill_in 'Password', with: user.password
-    click_button 'Log in'
+    click_button 'Log In'
 
     visit edit_trail_review_path(trail.id, trail.reviews.first.id)
 

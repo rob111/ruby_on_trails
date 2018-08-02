@@ -66,7 +66,7 @@ describe('TrailShowContainerSpec', () => {
         expect(wrapper.find('h2').first().text()).toEqual(trail.name)
         expect(wrapper.find('#street').text()).toEqual(`Street: ${trail.street}`)
         expect(wrapper.find('#difficulty').text()).toEqual(`Difficulty rating: ${trail.difficulty}`)
-        expect(wrapper.find('h2').last().text()).toEqual('Reviews:')
+        expect(wrapper.find('h2').last().text()).toEqual('Reviews')
         expect(wrapper.find('#review_username').text()).toEqual(`Username: ${user1.username}`)
         expect(wrapper.find('#review_rating').text()).toEqual(`Rating: ${reviews[0].rating}`)
         expect(wrapper.find('.edit_review_link').text()).toEqual(`Edit Review`)
@@ -82,7 +82,7 @@ describe('TrailShowContainerSpec', () => {
     it('renders expected vote buttons and associated likes returned from api call', (done) => {
       setTimeout(() => {
         expect(wrapper.find('#upvoteContainer').text()).toEqual('Like')
-        expect(wrapper.find('#voteCount').text()).toEqual(`Votes: ${reviews[0]["votes"]}`)
+        expect(wrapper.find('#voteCount').text()).toEqual(`${reviews[0]["votes"]} users liked this review`)
         expect(wrapper.find('.selected').text()).toEqual(`Like`)
 
         done()

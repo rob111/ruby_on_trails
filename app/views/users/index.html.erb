@@ -1,18 +1,11 @@
-
-<h2>Hello from the admin show page!</h2>
-
+<h2>Admin Section</h2>
 
 <% @users.each do |user| %>
-  <div class="username">
-    <%= user.username %>
-  </div>
-  <div class="user_email">
-    <%= user.email %>
-  </div>
+  <div class="panel-non-link admin-edit">
+    <span class='bold'>Username: </span> <%= link_to user.username, user_path(user) %> |
 
-  <div class="edit_button">
-    <%= link_to "Edit", edit_user_path(user), id: user.id %>
+    <span class='bold'>Email: </span> <%= user.email %>
 
+    <%= link_to "Edit", edit_user_path(user), id: user.id, class: 'btn-and-link' %>
   </div>
-  <br />
 <% end %>

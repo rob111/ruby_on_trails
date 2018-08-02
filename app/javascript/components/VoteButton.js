@@ -57,17 +57,25 @@ class VoteButton extends Component {
 
   selectedVote(id){
     if (this.state.liked == 'like' && id == 'upvoteContainer') {
-      return 'selected';
+      return 'vote-button selected';
     } else if(this.state.liked == 'dislike' && id == 'downvoteContainer'){
-      return 'selected';
+      return 'vote-button selected';
+    } else {
+      return 'vote-button'
     }
   }
 
   render(){
+    let countMessage;
+    if (this.state.count == 1) {
+      countMessage = "user liked this review"
+    } else {
+      countMessage = "users liked this review"
+    }
     let showVoterButtons;
     if(this.props.currentUser){
       showVoterButtons =
-      <div>
+      <span>
         <div className={this.selectedVote("upvoteContainer")} id="upvoteContainer">
           <a onClick={this.recordLikes}>
             Like</a>
@@ -76,14 +84,14 @@ class VoteButton extends Component {
           <a onClick={this.recordLikes}>
             Dislike</a>
         </div>
-      </div>
+      </span>
     }
     return (
       <div>
-        {showVoterButtons}
-      <div id="voteCount">
-        Votes: {this.state.count}
-      </div>
+        <div id="voteCount">
+          {this.state.count} {countMessage}
+        </div>
+          {showVoterButtons}
     </div>
     );
   }
