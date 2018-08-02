@@ -17,21 +17,12 @@ describe('TrailShowContainerSpec', () => {
         street: '777 Washington St.',
         city: 'Waltham',
         state: 'MA',
-<<<<<<< HEAD
-        zip: '12345',
-        start_latitude: '1',
-        start_longitude: '2',
-        length: '6 miles',
-        difficulty: '7',
-        elevation: '80',
-=======
         zip: 12345,
         start_latitude: 1,
         start_longitude: 2,
         length: 6,
         difficulty: 7,
         elevation: 80,
->>>>>>> 6efb72222f40eda7d32be650ea326eeefd830cc5
         user: user1,
         id: 1
     },
