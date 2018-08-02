@@ -2,7 +2,7 @@
 
 <% @users.each do |user| %>
   <div class="panel-non-link admin-edit">
-    <span class='bold'>Username: </span> <%= user.username %> |
+    <span class='bold'>Username: </span> <%= link_to user.username, user_path(user) %> |
 
     <span class='bold'>Email: </span> <%= user.email %>
 

@@ -6,6 +6,10 @@ label {
   font-size:1.2rem;
 }
 
+input[type='submit'] {
+  border-radius: 4px;
+}
+
 input {
   text-align: center;
 }
@@ -23,7 +27,6 @@ h2 {
   background-color: #b7c1b3;
   padding-top: 1rem;
   padding-bottom: 1rem;
-  // border: 3px solid #4a6741;
   box-shadow: 8px 8px 5px grey;
   border-radius: 4px;
 }
@@ -35,10 +38,6 @@ a:hover{
 a {
   border-radius: 4px;
 }
-// hr {
-//   background-color: #A9A9A9;
-//   border-color: #A9A9A9;
-// }
 
 .btn-and-link:active {
   transform: translateY(4px);
