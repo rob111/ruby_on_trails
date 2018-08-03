@@ -24,6 +24,7 @@ describe('TrailShowContainerSpec', () => {
         difficulty: 7,
         elevation: 80,
         user: user1,
+        photo: {url: 'https://d36gb93zszu20a.cloudfront.net/i/br/fma2.jpg'},
         id: 1
     },
   reviews = [

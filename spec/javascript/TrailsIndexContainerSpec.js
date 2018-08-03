@@ -23,7 +23,8 @@ describe('TrailsIndexContainerSpec', () => {
         length: 4,
         difficulty: 4,
         low_elevation: 23,
-        created_by: user1.id
+        created_by: user1.id,
+        photo: {url: 'https://d36gb93zszu20a.cloudfront.net/i/br/fma2.jpg'}
       }
     ]
     fetchMock.get('/api/v1/trails', {

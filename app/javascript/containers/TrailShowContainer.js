@@ -39,7 +39,6 @@ class TrailShow extends Component {
     })
     .then(response => response.json())
     .then(body => {
-      debugger
       this.setState({
         name: body.trail.name,
         street: body.trail.street,
@@ -56,7 +55,7 @@ class TrailShow extends Component {
         active_user_id: body.current_user.id,
         admin: body.current_user.admin,
         reviews: body.reviews,
-        photo: body.trail.photo,
+        photo: body.trail.photo.url,
         usernames: body.usernames
       })
     })
