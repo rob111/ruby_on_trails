@@ -1,4 +1,3 @@
-require 'dotenv/load'
 require 'httparty'
 #
 url = "https://www.hikingproject.com/data/get-trails?lat=42.3601&lon=-71.0589&key=#{ENV["HIKING_PROJECT_API_KEY"]}"
