@@ -4,7 +4,7 @@ class ReviewSerializer < ActiveModel::Serializer
   has_many :likes
 
   def votes
-    object.votes_count
+    object.vote_count
   end
 
   def user

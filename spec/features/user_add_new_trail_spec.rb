@@ -37,7 +37,6 @@ feature 'user adds a new trail', %Q{
     click_button 'Log In'
     click_link 'Add New Trail'
 
-
     fill_in 'Name', with: 'Boston21 Trail'
     fill_in 'Street', with: '123 Main St.'
     fill_in 'City', with: 'Boston'
