@@ -77,12 +77,11 @@ class VoteButton extends Component {
       showVoterButtons =
       <span>
         <div className={this.selectedVote("upvoteContainer")} id="upvoteContainer">
-          <a onClick={this.recordLikes}>
-            Like</a>
+          <a onClick={this.recordLikes}>Like</a>
         </div>
         <div className={this.selectedVote("downvoteContainer")} id="downvoteContainer">
-          <a onClick={this.recordLikes}>
-            Dislike</a>
+          <a onClick={this.recordLikes}>Dislike</a>
+
         </div>
       </span>
     }

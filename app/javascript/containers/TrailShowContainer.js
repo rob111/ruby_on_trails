@@ -117,26 +117,36 @@ class TrailShow extends Component {
     return (
       <div>
         <div>
-          <h2>{this.state.name}</h2>
-          {trailPhoto}
-          {streetShow}
-          <div id='city'>City: {this.state.city}<br/></div>
-          <div id='state'>State: {this.state.state}<br/></div>
-          {zipShow}
-          <div id='start_lat'>Starting latitude: {this.state.start_latitude}<br/></div>
-          <div id='start_lon'>Starting longitude: {this.state.start_longitude}<br/></div>
-          <div id='length'>Trail length: {this.state.length} miles<br/></div>
-          <div id='low_elevation'>Low elevation: {this.state.low_elevation}ft<br/></div>
-          <div id='high_elevation'>High elevation: {this.state.high_elevation}ft<br/></div>
-          <div id='ascent'>Total ascent: {this.state.ascent}ft<br/></div>
-          <div id='difficulty'>Difficulty rating: {this.state.difficulty}<br/></div>
-        </div>
+          <div className="names-in-rounded-box">
+            <h2>{this.state.name}</h2>
+          </div>
+          <div className="row">
+            <div className="small-12 medium-8 columns trail-image">
+              {trailPhoto}
+            </div>
+            <div className="small-block-grid-4 large-4 columns trail-info">
+            {streetShow}
+              <div id='city'>City: {this.state.city}<br/></div>
+              <div id='state'>State: {this.state.state}<br/></div>
+              {zipShow}
+              <div id='start_lat'>Starting latitude: {this.state.start_latitude}<br/></div>
+              <div id='start_lon'>Starting longitude: {this.state.start_longitude}<br/></div>
+              <div id='length'>Trail length: {this.state.length} miles<br/></div>
+              <div id='low_elevation'>Low elevation: {this.state.low_elevation}ft<br/></div>
+              <div id='high_elevation'>High elevation: {this.state.high_elevation}ft<br/></div>
+              <div id='ascent'>Total ascent: {this.state.ascent}ft<br/></div>
+              <div id='difficulty'>Difficulty rating: {this.state.difficulty}<br/></div>
+            </div>
+          </div>
         {new_review_link}
         {edit_trail_link}
         <div>
-          {review_title}
+          <div className="names-in-rounded-box">
+            {review_title}
+          </div>
           {reviews}
         </div>
+      </div>
       </div>
     )
   }
