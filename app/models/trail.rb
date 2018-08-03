@@ -1,4 +1,7 @@
 class Trail < ApplicationRecord
+
+  mount_uploader :photo, PhotoUploader
+
   has_many :reviews, dependent: :destroy
   validates :name, presence: true, uniqueness: true
   validates :city, presence: true
