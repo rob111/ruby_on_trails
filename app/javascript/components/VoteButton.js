@@ -60,26 +60,32 @@ class VoteButton extends Component {
   }
 
   render(){
+    let countMessage;
+    if (this.state.count == 1) {
+      countMessage = "user liked this review"
+    } else {
+      countMessage = "users liked this review"
+    }
     let showVoterButtons;
     if(this.props.currentUser){
       showVoterButtons =
-      <div>
-        <div className={this.selectedVote("upvoteContainer")} id="upvoteContainer">
+      <span>
+        <div className={`vote-button ${this.selectedVote("upvoteContainer")}`} id="upvoteContainer">
           <a onClick={this.recordLikes}>
             Like</a>
         </div>
-        <div className={this.selectedVote("downvoteContainer")} id="downvoteContainer">
+        <div className={`vote-button ${this.selectedVote("downvoteContainer")}`} id="downvoteContainer">
           <a onClick={this.recordLikes}>
             Dislike</a>
         </div>
-      </div>
+      </span>
     }
     return (
       <div>
-        {showVoterButtons}
-      <div id="voteCount">
-        Votes: {this.state.count}
-      </div>
+        <div id="voteCount">
+          {this.state.count} {countMessage}
+        </div>
+          {showVoterButtons}
     </div>
     );
   }

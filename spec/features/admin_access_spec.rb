@@ -13,7 +13,7 @@ feature 'admin access', %Q{
     fill_in 'Email', with: admin.email
     fill_in 'Password', with: admin.password
 
-    click_button 'Log in'
+    click_button 'Log In'
 
     expect(page).to have_content('Admin Section')
     expect(page).to have_content('Sign Out')
@@ -27,7 +27,7 @@ feature 'admin access', %Q{
     fill_in 'Email', with: member.email
     fill_in 'Password', with: member.password
 
-    click_button 'Log in'
+    click_button 'Log In'
 
     expect(page).to_not have_content('Admin Section')
     expect(page).to have_content('Sign Out')
@@ -41,7 +41,7 @@ feature 'admin access', %Q{
     fill_in 'Email', with: admin1.email
     fill_in 'Password', with: admin1.password
 
-    click_button 'Log in'
+    click_button 'Log In'
 
     click_link 'Admin Section'
 
@@ -59,7 +59,7 @@ feature 'admin access', %Q{
     fill_in 'Email', with: member1.email
     fill_in 'Password', with: member1.password
 
-    click_button 'Log in'
+    click_button 'Log In'
     visit "/users/#{member2.username}/edit"
 
     expect(page).to_not have_content('Admin Section')
