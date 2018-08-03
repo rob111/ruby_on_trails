@@ -48,14 +48,19 @@ class TrailsIndexContainer extends Component {
           length={trail.length}
           difficulty={trail.difficulty}
           elevation={trail.elevation}
+          photo={trail.photo}
         />
       )
     })
 
     return (
       <div>
-        <h2>Trails</h2>
-        {trails}
+        <h2 className="names-in-rounded-box">Trails</h2>
+        <div className="large-12 medium-12 small-12 columns">
+          <div className="row">
+            {trails}
+          </div>
+        </div>
       </div>
     )
   }

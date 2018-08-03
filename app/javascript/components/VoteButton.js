@@ -24,6 +24,8 @@ class VoteButton extends Component {
   }
 
   recordLikes(event) {
+    event.preventDefault();
+
     let formPayload = {
       like_id: this.state.like_id,
       liked: this.state.liked,
@@ -54,8 +56,12 @@ class VoteButton extends Component {
   }
 
   selectedVote(id){
-    if ((this.state.liked == 'like' && id == 'upvoteContainer') || (this.state.liked == 'dislike' && id == 'downvoteContainer')) {
-      return 'selected';
+    if (this.state.liked == 'like' && id == 'upvoteContainer') {
+      return 'vote-button selected';
+    } else if(this.state.liked == 'dislike' && id == 'downvoteContainer'){
+      return 'vote-button selected';
+    } else {
+      return 'vote-button'
     }
   }
 
@@ -70,13 +76,12 @@ class VoteButton extends Component {
     if(this.props.currentUser){
       showVoterButtons =
       <span>
-        <div className={`vote-button ${this.selectedVote("upvoteContainer")}`} id="upvoteContainer">
-          <a onClick={this.recordLikes}>
-            Like</a>
+        <div className={this.selectedVote("upvoteContainer")} id="upvoteContainer">
+          <a onClick={this.recordLikes}>Like</a>
         </div>
-        <div className={`vote-button ${this.selectedVote("downvoteContainer")}`} id="downvoteContainer">
-          <a onClick={this.recordLikes}>
-            Dislike</a>
+        <div className={this.selectedVote("downvoteContainer")} id="downvoteContainer">
+          <a onClick={this.recordLikes}>Dislike</a>
+
         </div>
       </span>
     }

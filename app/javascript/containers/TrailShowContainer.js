@@ -39,6 +39,7 @@ class TrailShow extends Component {
     })
     .then(response => response.json())
     .then(body => {
+      debugger
       this.setState({
         name: body.trail.name,
         street: body.trail.street,
@@ -67,22 +68,22 @@ class TrailShow extends Component {
     if (this.state.photo != '' && this.state.photo != null ) {
       trailPhoto = <img src={this.state.photo}/>
     }
-      
+
     let streetShow;
     if (this.state.street != '' && this.state.street != null) {
       streetShow = <div id='street'>Street: {this.state.street}</div>
     }
-      
+
     let zipShow;
     if (this.state.zip != '' && this.state.zip != null) {
       zipShow = <div id='zip'>Zipcode: {this.state.zip}</div>
     }
-      
+
     let review_title = null
     if (this.state.reviews.length > 0) {
       review_title = <h2>Reviews</h2>
     }
-      
+
     let new_review_link = ''
     if (this.state.active_user_id) {
       new_review_link = <div><a href={`/trails/${this.props.params.id}/reviews/new`}><div className="btn-and-link white-link">Review This Trail</div></a></div>
@@ -118,27 +119,37 @@ class TrailShow extends Component {
     }, this)
     return (
       <div>
-        <div className='panel-non-link'>
-          <h2>{this.state.name}</h2>
-          {trailPhoto}
-          {streetShow}
-          <div id='city'>City: {this.state.city}<br/></div>
-          <div id='state'>State: {this.state.state}<br/></div>
-          {zipShow}
-          <div id='start_lat'>Starting latitude: {this.state.start_latitude}<br/></div>
-          <div id='start_lon'>Starting longitude: {this.state.start_longitude}<br/></div>
-          <div id='length'>Trail length: {this.state.length} miles<br/></div>
-          <div id='low_elevation'>Low elevation: {this.state.low_elevation}ft<br/></div>
-          <div id='high_elevation'>High elevation: {this.state.high_elevation}ft<br/></div>
-          <div id='ascent'>Total ascent: {this.state.ascent}ft<br/></div>
-          <div id='difficulty'>Difficulty rating: {this.state.difficulty}<br/></div>
-        </div>
+        <div>
+          <div className="names-in-rounded-box">
+            <h2>{this.state.name}</h2>
+          </div>
+          <div className="row">
+            <div className="small-12 medium-8 columns trail-image">
+              {trailPhoto}
+            </div>
+            <div className="small-block-grid-4 large-4 columns trail-info">
+            {streetShow}
+              <div id='city'>City: {this.state.city}<br/></div>
+              <div id='state'>State: {this.state.state}<br/></div>
+              {zipShow}
+              <div id='start_lat'>Starting latitude: {this.state.start_latitude}<br/></div>
+              <div id='start_lon'>Starting longitude: {this.state.start_longitude}<br/></div>
+              <div id='length'>Trail length: {this.state.length} miles<br/></div>
+              <div id='low_elevation'>Low elevation: {this.state.low_elevation}ft<br/></div>
+              <div id='high_elevation'>High elevation: {this.state.high_elevation}ft<br/></div>
+              <div id='ascent'>Total ascent: {this.state.ascent}ft<br/></div>
+              <div id='difficulty'>Difficulty rating: {this.state.difficulty}<br/></div>
+            </div>
+          </div>
         {new_review_link}
         {edit_trail_link}
         <div>
-          {review_title}
+          <div className="names-in-rounded-box">
+            {review_title}
+          </div>
           {reviews}
         </div>
+      </div>
       </div>
     )
   }
