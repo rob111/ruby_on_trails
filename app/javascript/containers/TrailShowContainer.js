@@ -54,6 +54,7 @@ class TrailShow extends Component {
         ascent: body.trail.ascent,
         low_elevation: body.trail.low_elevation,
         high_elevation: body.trail.high_elevation,
+        description: body.trail.description,
         active_user_id: body.current_user.id,
         admin: body.current_user.admin,
         reviews: body.reviews,
@@ -135,6 +136,7 @@ class TrailShow extends Component {
               <div id='city'>City: {this.state.city}<br/></div>
               <div id='state'>State: {this.state.state}<br/></div>
               {zipShow}
+              <div id="description">Description: {this.state.description}<br/></div>
               <div id='start_lat'>Starting latitude: {this.state.start_latitude}<br/></div>
               <div id='start_lon'>Starting longitude: {this.state.start_longitude}<br/></div>
               <div id='length'>Trail length: {this.state.length} miles<br/></div>
