@@ -41,6 +41,7 @@ class TrailsIndexContainer extends Component {
           name={trail.name}
           street={trail.street}
           city={trail.city}
+          description={trail.description}
           state={trail.state}
           zip={trail.zip}
           start_latitude={trail.start_latitude}

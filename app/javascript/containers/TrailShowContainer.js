@@ -20,11 +20,13 @@ class TrailShow extends Component {
       low_elevation: '',
       high_elevation: '',
       photo: '',
-      admin: null
+      admin: null,
+      description: ''
     }
   }
 
   componentDidMount() {
+
     fetch(`/api/v1/trails/${this.props.params.id}`, {
       credentials: 'same-origin',
     })
@@ -56,12 +58,13 @@ class TrailShow extends Component {
         active_user_id: body.current_user.id,
         admin: body.current_user.admin,
         reviews: body.reviews,
-        photo: body.trail.photo.url,
-        usernames: body.usernames
+        photo: body.trail.photo,
+        usernames: body.usernames,
+        description: body.trail.description
       })
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
-  }
+     }
 
   render() {
     let trailPhoto;
@@ -128,6 +131,7 @@ class TrailShow extends Component {
               {trailPhoto}
             </div>
             <div className="small-block-grid-4 large-4 columns trail-info">
+              <div id='description'>{this.state.description}</div>
             {streetShow}
               <div id='city'>City: {this.state.city}<br/></div>
               <div id='state'>State: {this.state.state}<br/></div>
